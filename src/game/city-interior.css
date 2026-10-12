@@ -1,0 +1,242 @@
+/* The arrival office continues behind every workspace view. Presentation only. */
+.ghost-app.ny-academy-app.cw-app {
+  --gr-bg: #35312c;
+  --gr-panel: #f8f4ec;
+  --gr-border: #d4c9b9;
+  --gr-text: #302d29;
+  --gr-muted: #665e53;
+  --gr-green: #866343;
+  --ny-copper: #866343;
+  --ny-soft: #eee7dc;
+  --ci-ink: #302d29;
+  --ci-bronze: #866343;
+  --ci-stone: #f4efe6;
+  background: #35312c;
+  color: var(--ci-ink);
+}
+.cw-app .ci-workspace { position: relative; isolation: isolate; background: #35312c; }
+.ci-architecture { position: absolute; inset: 0; z-index: -1; overflow: hidden; pointer-events: none; }
+.ci-architecture picture, .ci-architecture img { display: block; width: 100%; height: 100%; }
+.ci-architecture img { object-fit: cover; object-position: 58% 48%; }
+.ci-architecture::after { content: ''; position: absolute; inset: 0; background: linear-gradient(180deg, #201d198c 0%, #30292166 35%, #26211cbd 100%); }
+.ny-academy-app.cw-app .gr-main { position: relative; padding: 28px 34px 32px; scrollbar-color: #b39a7e #332c25; animation: ci-desk-arrive .45s ease-out both; }
+@keyframes ci-desk-arrive { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: translateY(0); } }
+.ny-academy-app.cw-app .gr-main > :not(.gr-footer) { max-width: 1440px; margin-left: auto; margin-right: auto; }
+
+/* Walnut joinery, bronze inlays and a glass header frame the working floor. */
+.ny-academy-app.cw-app .gr-sidebar { background: linear-gradient(90deg, #28241f, #302b25 92%, #201c18); border-right: 1px solid #998065; color: #f2ede3; box-shadow: 8px 0 28px #17110b22; scrollbar-color: #8f795f #29251f; }
+.ny-academy-app.cw-app .gr-logo { color: #f6f0e6; }
+.ny-academy-app.cw-app .gr-logo small { color: #d0baa1; }
+.ny-academy-app.cw-app .ny-brand-symbol i { background: linear-gradient(90deg, #a88a63, #ddc69f, #8c7150); }
+.ny-academy-app.cw-app .ny-edition { color: #d1bda5; border-color: #685744; }
+.ny-academy-app.cw-app .gr-side-label, .ny-academy-app.cw-app .gr-side-label span { color: #c6b49c; }
+.ny-academy-app.cw-app .gr-operative strong { color: #f5efe5; }
+.ny-academy-app.cw-app .gr-operative small { color: #d1c4b4; }
+.ny-academy-app.cw-app .gr-sidebar .ny-profile-glyph { color: #e7cfaa; background: #514438; border: 1px solid #806a51; }
+.ny-academy-app.cw-app .gr-xp-row, .ny-academy-app.cw-app .gr-xp-row small { color: #cbbba5; }
+.ny-academy-app.cw-app .gr-xp-row b { color: #eed4ab; }
+.ny-academy-app.cw-app .gr-progress-track { background: #5b4e40; }
+.ny-academy-app.cw-app .gr-progress-track span { background: #c6a679; }
+.ny-academy-app.cw-app .gr-nav { color: #e3d9cc !important; min-height: 43px; border-left: 2px solid transparent; }
+.ny-academy-app.cw-app .gr-nav.active { color: #fff7e9 !important; background: linear-gradient(90deg, #75604488, #75604422); border-left: 2px solid #d5b780; }
+.ny-academy-app.cw-app .gr-nav:hover { background: #67533c55; color: #fff7e9 !important; }
+.ny-academy-app.cw-app .gr-side-line { border-color: #675540; }
+.ny-academy-app.cw-app .gr-mini-missions button { color: #e1d5c5; padding-left: 7px; padding-right: 7px; }
+.ny-academy-app.cw-app .gr-mini-missions button > span:first-child { background: #53483b; color: #e7d4b8; }
+.ny-academy-app.cw-app .gr-mini-missions button:disabled { color: #b8ad9e; background: transparent; opacity: 1; }
+.ny-academy-app.cw-app .gr-mini-missions button.active, .ny-academy-app.cw-app .gr-mini-missions button:not(:disabled):hover { background: #68543c55; color: #fae8cd; }
+.ny-academy-app.cw-app .gr-mini-missions button > span.complete { color: #d4eadb; background: #3d5947; }
+.ny-academy-app.cw-app .gr-sidebar-bottom p, .ny-academy-app.cw-app .gr-sidebar-bottom strong { color: #d6c4ad; }
+.ny-academy-app.cw-app .gr-sidebar-bottom button { color: #e1d2be !important; border-color: #6c5942; }
+.ny-academy-app.cw-app .gr-build { color: #bdac94; }
+.ny-academy-app.cw-app .gr-topbar { position: relative; z-index: 2; background: #28231de8; border-bottom: 1px solid #b0957180; backdrop-filter: blur(18px); }
+.ny-academy-app.cw-app .gr-top-path, .ny-academy-app.cw-app .gr-training-status { color: #d1bfa7; }
+.ny-academy-app.cw-app .gr-top-path strong { color: #f4ecdf; }
+.ny-academy-app.cw-app .gr-top-tools > button, .ny-academy-app.cw-app .gr-mobile-menu { color: #eadbc7; }
+.ny-academy-app.cw-app .gr-top-tools > button:hover { background: #725c4255; border-color: #a58a67; }
+.ny-academy-app.cw-app .gr-mobile-scrim { background: #17120ac9; }
+.ny-academy-app.cw-app button:focus-visible, .ny-academy-app.cw-app a:focus-visible, .ny-academy-app.cw-app input:focus-visible { outline: 2px solid #9d713f; outline-offset: 3px; }
+.ny-academy-app.cw-app .gr-sidebar button:focus-visible, .ny-academy-app.cw-app .gr-topbar button:focus-visible { outline-color: #f0cc93; }
+
+/* A low architectural opening replaces the flat title without adding more copy. */
+.cw-app .cw-dashboard-heading, .ny-academy-app.cw-app .gr-page-title {
+  position: relative; isolation: isolate; overflow: hidden; min-height: 156px; padding: 27px 30px; margin-bottom: 20px;
+  color: #fff5e7; background: #30271d; border: 1px solid #b59a737a; box-shadow: 0 16px 32px #18110a25;
+}
+.cw-app .cw-dashboard-heading::before, .ny-academy-app.cw-app .gr-page-title::before { content: ''; position: absolute; inset: 0; z-index: -2; background: url('/game/new-york/nyc-building-lobby.jpg?v=6') center 46% / cover; }
+.cw-app .cw-dashboard-heading::after, .ny-academy-app.cw-app .gr-page-title::after { content: ''; position: absolute; inset: 0; z-index: -1; background: linear-gradient(90deg, #201c17f5 0%, #2b241dde 37%, #201b17a8 66%, #1b17184d); }
+.ny-academy-app.cw-app .cw-dashboard-heading h1 { color: #fff5e7; font-size: clamp(26px, 2.65vw, 36px); letter-spacing: -1px; font-weight: 500; }
+.cw-app .cw-dashboard-heading .gr-eyebrow, .ny-academy-app.cw-app .gr-page-title .gr-eyebrow { color: #ecd4b0; font-size: 10px; letter-spacing: 1.4px; }
+.ny-academy-app.cw-app .gr-page-title h1 { color: #fff5e7; font-size: clamp(26px, 2.8vw, 36px); }
+.ny-academy-app.cw-app .gr-page-title p { color: #eadfce; max-width: 750px; font-size: 13px; line-height: 1.8; }
+.cw-app .cw-resume { background: #f6f0e5ed; border-color: #e8d6b6; color: #403529; font-size: 12px !important; }
+.cw-app .cw-resume:hover { background: #fff7e9; border-color: #f4d4a1; }
+.ny-academy-app.cw-app .gr-reward, .ny-academy-app.cw-app .gr-mode-tag { color: #f3ddbb; background: #201b17b3; border: 1px solid #b49a7277; padding: 9px 12px; }
+.ny-academy-app.cw-app .gr-page-title > svg { color: #e8c997; }
+
+/* The desks read as stone work surfaces against the continuous office interior. */
+.cw-app .cw-trade-context { background: #ede6d9f5; border: 1px solid #c4af92; padding: 16px 24px; margin-bottom: 18px; box-shadow: 0 8px 20px #21160d1a; }
+.cw-app .cw-trade-name strong, .cw-app .cw-trade-amount b { color: #383026; }
+.cw-app .cw-trade-name small, .cw-app .cw-trade-amount > span, .cw-app .cw-environment { color: #64594a; }
+.cw-app .cw-trade-name > svg, .cw-app .cw-trade-name strong span { color: #846341; }
+.cw-app .cw-trade-amount > svg { color: #846b4c; }
+.cw-app .cw-environment { border-color: #b9a484; font-size: 10px; }
+.cw-app .cw-role-section, .cw-app .cw-learning-panel, .cw-app .cw-tools-panel { padding: 22px 24px; background: #f6f1e8f7; border: 1px solid #d5c4ad; box-shadow: 0 16px 32px #20140b26; }
+.cw-app .cw-role-section { margin-bottom: 18px; }
+.cw-app .cw-section-heading { margin-bottom: 16px; }
+.cw-app .cw-section-heading h2 { font-size: 16px; color: #302b25; }
+.cw-app .cw-section-heading > span { color: #63594c; font-size: 11px; }
+.cw-app .cw-role-grid { gap: 12px; }
+.cw-app .cw-role-card { position: relative; overflow: hidden; min-height: 158px; padding: 18px; border: 1px solid #cbbba3; background: linear-gradient(125deg, #fffcf6, #eee6d9); box-shadow: inset 0 3px 0 #d1b98f; transition: border-color .2s, box-shadow .2s, transform .2s; }
+.cw-app .cw-role-card::after { content: ''; position: absolute; top: 0; bottom: 0; right: 0; width: 31%; background: linear-gradient(110deg, transparent, #ba9b6712); pointer-events: none; border-left: 1px solid #b69d7919; }
+.cw-app .cw-role-card:hover { background: linear-gradient(125deg, #fffaf0, #e9ddcb); border-color: #8c6944; transform: translateY(-2px); box-shadow: inset 0 3px 0 #9e7a47, 0 8px 16px #4e342a13; }
+.cw-app .cw-role-top { margin-bottom: 14px; color: #866343; }
+.cw-app .cw-role-code { font: 23px/1 Georgia, 'Times New Roman', serif; color: #846848; }
+.cw-app .cw-role-card > strong { color: #302b25; font-size: 16px; }
+.cw-app .cw-role-subtitle { color: #605648; font-size: 12px; line-height: 1.7; }
+.cw-app .cw-role-action { color: #76502d; font-size: 11px; }
+.cw-app .cw-role-auditor { box-shadow: inset 0 3px 0 #82928a; }
+.cw-app .cw-role-outsider { box-shadow: inset 0 3px 0 #9a9389; }
+.cw-app .cw-role-auditor .cw-role-top { color: #516963; }
+.cw-app .cw-role-outsider .cw-role-top { color: #655d53; }
+.cw-app .cw-dashboard-bottom { gap: 18px; grid-template-columns: minmax(0, 1.55fr) minmax(0, 1fr); }
+.cw-app .cw-lesson { min-height: 75px; background: #fffcf4; border-color: #d1c4b1; }
+.cw-app .cw-lesson.available { border-color: #947247; box-shadow: inset 3px 0 0 #947247; }
+.cw-app .cw-lesson:not(:disabled):hover { background: #ede1cf; border-color: #87623c; }
+.cw-app .cw-lesson-icon, .cw-app .cw-lesson-state { color: #866343; }
+.cw-app .cw-lesson-copy > strong { color: #3d3428; }
+.cw-app .cw-lesson-copy > small, .cw-app .cw-lesson-copy > span { color: #68543a; }
+.ny-academy-app.cw-app .cw-lesson:disabled { background: #e8e2d8; border-color: #d0c7b9; color: #686052; }
+.cw-app .cw-lesson.locked .cw-lesson-copy > strong, .cw-app .cw-lesson.locked .cw-lesson-copy > span, .cw-app .cw-lesson.locked .cw-lesson-icon, .cw-app .cw-lesson.locked .cw-lesson-state { color: #686052; }
+.cw-app .cw-lesson.done { background: #edf1e8; border-color: #a7b59d; }
+.cw-app .cw-learning-note { color: #63594c; font-size: 11px; line-height: 1.7; }
+.cw-app .cw-tool { border-color: #cbbba3; }
+.cw-app .cw-tool:first-of-type { border-color: #cbbba3; }
+.cw-app .cw-tool strong { color: #3c3227; font-size: 13px; }
+.cw-app .cw-tool small { color: #64594a; font-size: 11px; }
+.cw-app .cw-tool > svg { color: #85613b; }
+.cw-app .cw-tool:hover { background: #e9dfcf; }
+.cw-app .cw-workspace-note { color: #67573f; }
+.cw-app .cw-workspace-note p { font-size: 11px; }
+
+/* Lessons, reference shelves and role documents share the same reading surface. */
+.ny-academy-app.cw-app .gr-lesson-progress { background: #f4eee2f2; padding: 14px 22px; border: 1px solid #bda88a; }
+.ny-academy-app.cw-app .gr-lesson-progress button { border: 0; box-shadow: none; background: transparent; }
+.ny-academy-app.cw-app .gr-lesson-progress button > span { color: #6e5c42; background: #eee3d0; border-color: #baa584; }
+.ny-academy-app.cw-app .gr-lesson-progress button.active > span { color: #fff7e8; background: #866343; border-color: #866343; }
+.ny-academy-app.cw-app .gr-lesson-progress button:disabled > span { color: #776854; border-color: #c0ae93; }
+.ny-academy-app.cw-app .gr-lesson-progress button i { background: #baa584; }
+.ny-academy-app.cw-app .gr-lesson-progress button.done > span { color: #376f57; background: #e7ece3; border-color: #8caa80; }
+.ny-academy-app.cw-app .gr-briefing-panel { background: #f8f3eaf7; border-color: #c9b69b; box-shadow: 0 16px 35px #20140b22; }
+.ny-academy-app.cw-app .gr-briefing-panel h2, .ny-academy-app.cw-app .gr-briefing-panel h3 { color: #393027; }
+.ny-academy-app.cw-app .gr-briefing-panel p { color: #5e5447; }
+.ny-academy-app.cw-app .gr-concept, .ny-academy-app.cw-app .gr-objective, .ny-academy-app.cw-app .gr-hint { background: #eae1d1; border-color: #c9b599; }
+.ny-academy-app.cw-app .gr-mentor { background: #eee5d6; border-color: #c4af90; color: #755734; }
+.ny-academy-app.cw-app .gr-puzzle-footer { background: #f4ecdef7; padding: 17px 20px; border: 1px solid #bda88a; margin-top: 12px; }
+.ny-academy-app.cw-app .gr-puzzle-footer > span { color: #65563f; }
+.ny-academy-app.cw-app .gr-feedback { box-shadow: 0 12px 24px #20140b26; }
+.ny-academy-app.cw-app .gr-button { background: #3a3025; border-color: #3a3025; color: #fff6e8 !important; }
+.ny-academy-app.cw-app .gr-button:hover { background: #5c4730; border-color: #5c4730; }
+.ny-academy-app.cw-app .gr-button.secondary { color: #433326 !important; background: #fffaf1; border-color: #b79e7c; }
+.ny-academy-app.cw-app .gr-button.secondary:hover { background: #e8dbc7; }
+.ny-academy-app.cw-app .gr-button:disabled { color: #716655 !important; background: #e1d8ca !important; border-color: #c3b197 !important; opacity: 1; }
+.ny-academy-app.cw-app .gr-text-button { border: 0; box-shadow: none; background: transparent; }
+.ny-academy-app.cw-app .gr-archive-toolbar { padding: 17px 22px; margin-bottom: 18px; background: #f5eee3f5; border: 1px solid #cfbba0; }
+.ny-academy-app.cw-app .gr-archive-toolbar button { color: #65513a; }
+.ny-academy-app.cw-app .gr-archive-toolbar button.active { color: #fff3e0; background: #5b452d; border-color: #5b452d; }
+.ny-academy-app.cw-app .gr-archive-toolbar input { color: #3b3023; background: #fffaf1; border-color: #bba383; }
+.ny-academy-app.cw-app .gr-archive-toolbar input::placeholder { color: #756651; }
+.ny-academy-app.cw-app .gr-archive-card { background: linear-gradient(120deg, #fffaf2fa, #f0e7d9fa); border-color: #cbb798; box-shadow: 0 16px 30px #20140b20; padding: 25px; }
+.ny-academy-app.cw-app .gr-archive-card h2, .ny-academy-app.cw-app .gr-archive-card strong { color: #393025; }
+.ny-academy-app.cw-app .gr-archive-card p, .ny-academy-app.cw-app .gr-archive-card small { color: #665a49; }
+.ny-academy-app.cw-app .gr-archive-sources { padding: 24px; background: #eee5d6f5; border: 1px solid #bfa687; }
+.ny-academy-app.cw-app .gr-archive-sources p { color: #5f503c; }
+.ny-academy-app.cw-app .gr-empty { padding: 25px; background: #f6eee2; color: #5b4933; }
+.ny-academy-app.cw-app .gr-footer { color: #ecdbc1; border-color: #b2967273; }
+.ny-academy-app.cw-app .gr-footer span, .ny-academy-app.cw-app .gr-footer a { color: #ecdbc1; }
+
+/* The public role preview remains clearly labeled as a document, not live proof. */
+.cw-app .ny-web-lab { background: #f7f1e7f7; border: 1px solid #cdb899; box-shadow: 0 16px 35px #20140b29; padding: 24px; }
+.cw-app .ny-online-status { background: #eadbc3; border-color: #b79970; color: #5e4a2d; padding: 17px 20px; }
+.cw-app .ny-online-status strong { color: #4e3b20; }
+.cw-app .ny-web-role-tabs { margin-top: 23px; border-color: #c4ad8b; }
+.cw-app .ny-web-role-tabs button { color: #61513c; }
+.cw-app .ny-web-role-tabs button[aria-selected=true] { background: #e7dac5; color: #332617; border-color: #8b6638; }
+.cw-app .ny-web-role-panel { border-color: #c6b294; }
+.cw-app .ny-web-role-copy h2, .cw-app .ny-web-trust h2 { color: #3b2e20; }
+.cw-app .ny-web-role-copy p, .cw-app .ny-web-trust p { color: #615342; }
+.cw-app .ny-web-role-copy { padding-top: 28px; padding-bottom: 28px; }
+.cw-app .ny-web-role-document { margin: 24px 0 24px 20px; padding: 26px; border: 1px solid #cfb999; background: #fffbf3; box-shadow: 8px 10px 0 #dbcdb83d; }
+.cw-app .ny-web-role-document li, .cw-app .ny-web-role-document > p { color: #64553f; }
+.cw-app .ny-web-action { border-color: #cbb696; }
+.cw-app .ny-web-action small { color: #66563f; }
+.cw-app .ny-web-trust { padding-top: 24px; gap: 28px; }
+.cw-app .ny-web-trust > div { min-width: 0; padding: 24px; border: 1px solid #d0bfa7; background: #eee5d6; }
+.cw-app .ny-web-trust .gr-button { max-width: 100%; white-space: normal; gap: 12px; }
+
+/* Reuse the real terminal's existing statuses; decoration never changes evidence. */
+.ny-academy-app.cw-app .gr-live-panel, .ny-academy-app.cw-app .gr-live-mission, .ny-academy-app.cw-app .gr-live-card, .ny-academy-app.cw-app .gr-live-query, .ny-academy-app.cw-app .gr-live-tools, .ny-academy-app.cw-app .gr-live-connection { background: #f7f1e8f7; border-color: #cbb99e; }
+.ny-academy-app.cw-app .gr-live-toolbar { background: #ece2d3; border-color: #c4ae8e; }
+.ny-academy-app.cw-app .gr-modal-backdrop { background: #19140ee0; backdrop-filter: blur(9px); }
+.ny-academy-app.cw-app .gr-modal { background: linear-gradient(125deg, #fffaf0, #eae0d0); border: 1px solid #bea27b; box-shadow: 0 30px 100px #100b0799, inset 0 5px 0 #9a7748; }
+.ny-academy-app.cw-app .gr-modal h2 { color: #382b1d; }
+.ny-academy-app.cw-app .gr-modal li strong { color: #4b3924; }
+.ny-academy-app.cw-app .gr-modal-close { border: 1px solid #bca17b; background: #f7edde; color: #604a2c; box-shadow: none; }
+.ny-academy-app.cw-app .gr-modal-close:hover { background: #e5d5bb; }
+.ny-academy-app.cw-app .gr-modal p, .ny-academy-app.cw-app .gr-modal li span { color: #64523c; }
+.ny-academy-app.cw-app .gr-modal-note { background: #e9ddc8; border-color: #c3a881; color: #614d32; }
+.ny-academy-app.cw-app .gr-callsign input { background: #fffaf1; border-color: #b79d77; color: #3b2c1c; }
+.ny-academy-app.cw-app .gr-modal .gr-button { max-width: 100%; white-space: normal; gap: 12px; }
+.ny-academy-app.cw-app .gr-profile-actions { flex-wrap: wrap; }
+
+@media (max-width: 1180px) {
+  .ny-academy-app.cw-app .gr-main { padding: 24px 26px 28px; }
+  .cw-app .cw-role-section, .cw-app .cw-learning-panel, .cw-app .cw-tools-panel { padding: 20px; }
+  .cw-app .cw-dashboard-bottom { grid-template-columns: minmax(0, 1.5fr) minmax(0, 1fr); }
+}
+@media (max-width: 970px) {
+  .cw-app .cw-dashboard-bottom { grid-template-columns: 1fr; }
+  .cw-app .cw-role-card { min-height: 154px; }
+}
+@media (max-width: 760px) {
+  .ny-academy-app.cw-app .gr-main { padding: 20px 20px 28px; }
+  .ci-architecture img { object-position: 65% 45%; }
+  .cw-app .cw-dashboard-heading, .ny-academy-app.cw-app .gr-page-title { padding: 24px; min-height: 146px; }
+  .cw-app .cw-dashboard-heading::before, .ny-academy-app.cw-app .gr-page-title::before { background-image: url('/game/new-york/nyc-building-lobby-mobile.jpg?v=6'); }
+  .cw-app .cw-dashboard-heading::after, .ny-academy-app.cw-app .gr-page-title::after { background: linear-gradient(90deg, #201c17ee, #201c1799); }
+  .cw-app .cw-dashboard-heading h1 { font-size: 29px; }
+  .cw-app .cw-resume { font-size: 11px !important; }
+  .cw-app .cw-trade-context { padding: 16px 20px; }
+  .cw-app .ny-web-lab { padding: 20px; }
+  .ny-academy-app.cw-app .gr-page-title { flex-wrap: wrap; gap: 18px; }
+}
+@media (max-width: 520px) {
+  .ny-academy-app.cw-app .gr-main { padding: 16px 14px 24px; }
+  .cw-app .cw-dashboard-heading { min-height: 180px; padding: 23px 20px; margin-bottom: 14px; }
+  .cw-app .cw-dashboard-heading h1 { font-size: 28px; }
+  .cw-app .cw-dashboard-heading .gr-eyebrow { font-size: 9px; }
+  .cw-app .cw-trade-context { margin-bottom: 14px; }
+  .cw-app .cw-role-section, .cw-app .cw-learning-panel, .cw-app .cw-tools-panel { padding: 18px 15px; }
+  .cw-app .cw-role-section { margin-bottom: 14px; }
+  .cw-app .cw-role-grid { gap: 9px; }
+  .cw-app .cw-role-card { padding: 15px 12px; min-height: 165px; }
+  .cw-app .cw-role-card > strong { font-size: 15px; }
+  .cw-app .cw-role-subtitle { font-size: 11px; }
+  .cw-app .cw-role-action { font-size: 10px; }
+  .cw-app .cw-section-heading > span { font-size: 10px; }
+  .cw-app .cw-dashboard-bottom { gap: 14px; }
+  .cw-app .cw-lesson-copy > span { font-size: 10px; }
+  .cw-app .cw-lesson-copy > small { font-size: 8px; }
+  .cw-app .cw-lesson { min-height: 85px; }
+  .ny-academy-app.cw-app .gr-page-title { padding: 24px 20px; }
+  .ny-academy-app.cw-app .gr-page-title h1 { font-size: 27px; }
+  .ny-academy-app.cw-app .gr-page-title p { font-size: 12px; }
+  .ny-academy-app.cw-app .gr-archive-toolbar { padding: 17px; }
+  .cw-app .ny-web-lab { padding: 16px; }
+  .cw-app .ny-online-status { padding: 16px; }
+  .cw-app .ny-web-role-tabs button { padding: 15px 5px; }
+  .cw-app .ny-web-role-document { margin: 0 0 20px; padding: 22px 18px; }
+  .cw-app .ny-web-trust { gap: 15px; }
+  .cw-app .ny-web-trust > div { padding: 20px; }
+}
+@media (prefers-reduced-motion: reduce) { .cw-app .cw-role-card { transition: none; } .cw-app .cw-role-card:hover { transform: none; } }

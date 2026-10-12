@@ -1,0 +1,420 @@
+/* NYC V2 presentation. Ledger evidence, identity, progress and #/lab are unchanged. */
+body:has(.ny-academy-app), body:has(.ny-entry-app) { background: #f3f1eb; }
+.ghost-app.ny-academy-app {
+  --gr-bg: #f3f1eb;
+  --gr-panel: #fffefb;
+  --gr-border: #d9dcd4;
+  --gr-text: #182723;
+  --gr-muted: #59645c;
+  --gr-green: #8b543b;
+  --gr-purple: #546a73;
+  --gr-mono: 'SFMono-Regular', Consolas, 'Liberation Mono', 'Malgun Gothic', monospace;
+  --ny-copper: #8b543b;
+  --ny-soft: #ece8df;
+  --ny-success: #376f57;
+  font-family: 'Aptos', 'Segoe UI', 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif;
+  color-scheme: light;
+  font-size: 14px;
+}
+.ny-academy-app h1, .ny-academy-app h2, .ny-academy-app h3 { font-weight: 550; }
+.ny-academy-app p { word-break: keep-all; }
+.ny-academy-app button, .ny-academy-app input { border-radius: 0; }
+.ny-academy-app button:disabled { background: #e9e7e1; border-color: #d3d5ce; color: #656b62; box-shadow: none; }
+.ny-academy-app .gr-button:disabled { background: #e4e3dc !important; color: #656b62 !important; border-color: #d3d5ce !important; }
+.ny-academy-app .gr-led { background: var(--ny-success); box-shadow: none; }
+.ny-academy-app .gr-eyebrow { color: var(--ny-copper); font: 10px/1.6 var(--gr-mono); letter-spacing: 1.2px; }
+.ny-academy-app .gr-button { min-height: 46px; padding: 13px 18px; gap: 23px; font-size: 12px !important; background: #182723; color: #fffefb !important; border: 1px solid #182723; box-shadow: none; font-weight: 500; letter-spacing: 0; }
+.ny-academy-app .gr-button:hover { background: #304039; border-color: #304039; transform: none; }
+.ny-academy-app .gr-button.secondary { background: transparent; color: #182723 !important; border-color: #99a096; }
+.ny-academy-app .gr-button.secondary:hover { background: #e8e7df; border-color: #526056; }
+.ny-academy-app .gr-text-button { color: var(--ny-copper) !important; font-size: 12px !important; }
+.ny-academy-app .gr-skip { left: 245px; background: #182723; color: #fffefb; }
+
+/* Restrained navigation and learner identity. */
+.ny-academy-app .gr-sidebar { width: 228px; padding: 35px 23px 24px; background: #fbfaf6; border-color: #d9dcd4; scrollbar-color: #b9bdb4 #fbfaf6; overflow-y: auto; }
+.ny-academy-app .gr-logo { font-family: inherit !important; font-size: 25px; letter-spacing: 1.6px; font-weight: 500; gap: 14px; }
+.ny-academy-app .gr-logo small { color: #6b6d60; font-size: 9px; margin-top: 7px; letter-spacing: 3.25px; font-weight: 500; }
+.ny-brand-symbol { display: flex; align-items: flex-end; gap: 3px; width: 29px; height: 40px; padding-bottom: 3px; }
+.ny-brand-symbol i { display: block; width: 6px; background: #8b543b; height: 25px; }
+.ny-brand-symbol i:nth-child(2) { height: 34px; }
+.ny-brand-symbol i:nth-child(3) { height: 19px; }
+.ny-academy-app .ny-edition { margin-top: 24px; padding-bottom: 22px; border-bottom: 1px solid #d9dcd4; color: #72786d; font: 8px/1.5 var(--gr-mono); letter-spacing: .8px; }
+.ny-academy-app .gr-side-label { color: #787e73; font-size: 9px; letter-spacing: 1.2px; margin: 26px 0 11px; }
+.ny-academy-app .gr-side-label span { color: #72786d; }
+.ny-academy-app .gr-operative { background: transparent; border: 0; padding: 0; gap: 11px; min-height: 49px; }
+.ny-profile-glyph { display: grid; place-items: center; width: 39px; height: 43px; color: #8b543b; background: #eee8df; flex-shrink: 0; }
+.ny-academy-app .gr-operative strong { font-family: inherit; font-size: 14px; letter-spacing: 0; font-weight: 600; }
+.ny-academy-app .gr-operative small { color: #697467; font-size: 10px; margin-top: 4px; }
+.ny-academy-app .gr-xp-row { color: #5d665b; margin: 16px 0 8px; font-size: 10px; }
+.ny-academy-app .gr-xp-row b { color: #8b543b; font-weight: 500; margin-left: 6px; }
+.ny-academy-app .gr-xp-row small { color: #6c7368; font-size: 9px; }
+.ny-academy-app .gr-progress-track { height: 2px; background: #e1e2d9; }
+.ny-academy-app .gr-progress-track span { background: #8b543b; box-shadow: none; }
+.ny-academy-app .gr-sidebar nav { margin-top: 25px; }
+.ny-academy-app .gr-nav { font-size: 12px !important; min-height: 45px; padding: 11px 12px; margin: 2px 0; background: transparent; color: #4d5a4e !important; border: 0; gap: 13px; }
+.ny-academy-app .gr-nav.active { background: #eae7df; color: #182723 !important; border: 0; }
+.ny-academy-app .gr-nav > svg:last-child { margin-left: auto; }
+.ny-academy-app .gr-nav:hover { background: #efede7; color: #182723 !important; }
+.ny-academy-app .gr-side-line { border-color: #d9dcd4; margin: 25px 0 0; }
+.ny-academy-app .gr-mini-missions button { background: transparent; color: #536150; min-height: 38px; font-size: 11px; padding: 7px 0; gap: 11px; }
+.ny-academy-app .gr-mini-missions button > span:first-child { border: 0; background: #e9e9df; color: #727970; font-size: 9px; width: 22px; height: 23px; }
+.ny-academy-app .gr-mini-missions button > span.complete { color: #376f57; background: #e5ebe3; }
+.ny-academy-app .gr-mini-missions button.active { color: #8b543b; }
+.ny-academy-app .gr-mini-missions button:disabled { color: #777d71; background: transparent; }
+.ny-academy-app .gr-sidebar-bottom { padding-top: 30px; }
+.ny-academy-app .gr-sidebar-bottom p { color: #667061; font-size: 12px; }
+.ny-academy-app .gr-sidebar-bottom strong { color: #273a30; font-weight: 500; }
+.ny-academy-app .gr-sidebar-bottom button { border-color: #cfd3c9; color: #5c6659 !important; font-size: 10px; }
+.ny-academy-app .gr-build { font-size: 7px; color: #798171; letter-spacing: .45px; }
+
+/* City banner, two paths, and a legible learning map. */
+.ny-academy-app .gr-workspace { margin-left: 228px; }
+.ny-academy-app .gr-topbar { height: 73px; padding: 0 44px; background: #f3f1ebed; border-color: #d9dcd4; backdrop-filter: blur(14px); }
+.ny-academy-app .gr-top-path { color: #7b8076; font-size: 10px; letter-spacing: 1px; gap: 15px; }
+.ny-academy-app .gr-top-path strong { color: #3d4d41; font-size: 12px; letter-spacing: 0; font-weight: 500; }
+.ny-academy-app .gr-top-tools { gap: 13px; }
+.ny-academy-app .gr-top-tools > button { width: 36px; height: 40px; padding: 8px; color: #586354; background: transparent; }
+.ny-academy-app .gr-training-status { color: #7e8174; font-size: 8px; letter-spacing: 1px; }
+.ny-academy-app .gr-main { max-width: 1540px; padding: 39px 44px 0; }
+.ny-city-banner { position: relative; min-height: 274px; overflow: hidden; background: #d8d3c6; }
+.ny-city-banner > img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: 60% 43%; }
+.ny-city-banner-shade { position: absolute; inset: 0; background: linear-gradient(90deg, #ebe9dfee 0%, #ebe9dfdf 27%, #ebe9df88 53%, #ebe9df08 78%); }
+.ny-city-banner-copy { position: relative; z-index: 1; padding: 33px 35px 40px; max-width: 520px; }
+.ny-city-banner-copy h1 { font-size: clamp(29px, 3vw, 40px); font-weight: 500; line-height: 1.23; letter-spacing: -1.7px; margin: 15px 0 14px; }
+.ny-city-banner-copy p { color: #4e5c50; font-size: 12px; margin: 0; max-width: 285px; }
+.ny-photo-caption { position: absolute; bottom: 20px; right: 21px; color: #fff; font: 8px/1.5 var(--gr-mono); letter-spacing: 1px; text-shadow: 0 1px 6px #0009; }
+.ny-start-paths { display: grid; grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr); border-top: 1px solid #c8cec0; border-bottom: 1px solid #c8cec0; margin-top: 32px; }
+.ny-start-path { padding: 26px 36px 28px 0; min-width: 0; }
+.ny-start-path + .ny-start-path { padding: 26px 0 28px 36px; border-left: 1px solid #d4d8cc; }
+.ny-path-meta { display: flex; justify-content: space-between; align-items: center; color: #8b543b; font: 9px/1.5 var(--gr-mono); letter-spacing: 1px; }
+.ny-start-path h2 { font-size: 21px; line-height: 1.5; margin: 15px 0 10px; font-weight: 550; letter-spacing: -.75px; word-break: keep-all; }
+.ny-start-path > p { font-size: 12px; color: #5e685b; margin: 0; min-height: 47px; line-height: 1.8; }
+.ny-start-path > small { display: block; font-size: 10px; color: #656f61; margin-top: 13px; line-height: 1.8; word-break: keep-all; }
+.ny-start-path > .gr-button { margin-top: 20px; }
+.ny-desk-switch { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 20px; }
+.ny-desk-switch button { display: flex; gap: 8px; align-items: center; min-height: 39px; padding: 8px 10px; border: 1px solid #c9cec1; background: transparent; font-size: 10px !important; color: #596553; }
+.ny-desk-switch button span { font: 10px var(--gr-mono); color: #8b543b; }
+.ny-desk-switch button[aria-pressed=true] { background: #e8e4d9; border-color: #8b543b; color: #263a2c; }
+.ny-learning-number { display: flex; gap: 14px; align-items: center; margin-top: 17px; min-height: 42px; }
+.ny-learning-number strong { font: 40px/1.1 'Georgia', 'Times New Roman', serif; color: #8b543b; font-weight: 400; }
+.ny-learning-number span { font: 8px/1.9 var(--gr-mono); color: #6e7667; letter-spacing: .5px; }
+.ny-academy-app .gr-section-heading { margin: 40px 0 23px; align-items: center; }
+.ny-academy-app .gr-section-heading h2 { font-size: 25px; font-weight: 500; margin: 10px 0 0; letter-spacing: -.9px; }
+.ny-academy-app .gr-mission-counter { font-size: 11px; color: #677262; padding: 0; letter-spacing: 0; white-space: nowrap; }
+.ny-academy-app .gr-mission-grid { gap: 16px; }
+.ny-academy-app .gr-mission-card { padding: 23px 24px 0; background: #fcfbf7; border: 1px solid #d9dcd4; }
+.ny-academy-app .gr-mission-card.available { background: #fffefb; border-color: #9a7660; }
+.ny-academy-app .gr-mission-card.available::before { display: none; }
+.ny-academy-app .gr-mission-card.done { background: #fbfcf7; border-color: #b9c7b5; }
+.ny-academy-app .gr-mission-card.locked { background: #efeee8; border-color: #d7dbd0; }
+.ny-academy-app .gr-mission-card:not(:disabled):hover { background: #fffefb; border-color: #8b543b; transform: translateY(-2px); }
+.ny-academy-app .gr-card-top { color: #7a8172; font-size: 8px; letter-spacing: 1px; }
+.ny-academy-app .gr-card-top > span:last-child { font-size: 10px; color: #6d7568; letter-spacing: 0; gap: 5px; }
+.ny-academy-app .gr-mission-card.done .gr-card-top > span:last-child { color: #376f57; }
+.ny-lesson-mark { display: flex; justify-content: space-between; align-items: center; margin: 24px 0 18px; color: #8b543b; }
+.ny-lesson-mark span { font: 35px/1 'Georgia', 'Times New Roman', serif; color: #c1bdab; }
+.ny-academy-app .gr-mission-card h3 { font-size: 18px; font-weight: 550; line-height: 1.5; letter-spacing: -.55px; margin: 0 0 10px; word-break: keep-all; }
+.ny-academy-app .gr-mission-card.locked h3 { color: #626e5c; }
+.ny-academy-app .gr-mission-card p { font-size: 12px; line-height: 1.85; color: #5b6756; margin: 0; padding-bottom: 25px; }
+.ny-academy-app .gr-mission-card.locked p { color: #697463; }
+.ny-academy-app .gr-card-bottom { border-color: #d9dcd4; padding: 15px 0; color: #777b6d; font-size: 9px; letter-spacing: 0; }
+.ny-academy-app .gr-card-bottom > span:last-child { color: #8b543b; font-size: 10px; }
+.ny-academy-app .gr-route-note { display: flex; gap: 10px; align-items: flex-start; color: #636e5d; margin-top: 21px; }
+.ny-academy-app .gr-route-note svg { margin-top: 4px; flex-shrink: 0; }
+.ny-academy-app .gr-route-note p { margin: 0; font-size: 11px; }
+.ny-academy-app .gr-footer { border-color: #cfd4c5; margin-top: 40px; padding: 25px 0 29px; color: #747c6b; font-size: 8px; letter-spacing: 1px; }
+.ny-academy-app .gr-footer i { color: #8b543b; }
+.ny-academy-app .gr-footer > span:last-child { font-size: 10px; letter-spacing: 0; }
+
+/* Education: familiar document, controls, and examples instead of a game console. */
+.ny-academy-app .gr-page-title { margin: 6px 0 31px; }
+.ny-academy-app .gr-page-title h1 { font-size: clamp(27px, 3vw, 38px); font-weight: 500; line-height: 1.4; letter-spacing: -1.1px; margin: 14px 0 13px; }
+.ny-academy-app .gr-page-title p { color: #5b6756; font-size: 13px; max-width: 720px; }
+.ny-academy-app .gr-mode-tag, .ny-academy-app .gr-reward { background: #eee8df; border-color: #cfbca9; color: #76503b; font-size: 10px; }
+.ny-academy-app .gr-lesson-progress { margin-bottom: 30px; }
+.ny-academy-app .gr-lesson-progress button { min-height: 44px; color: #64705d; }
+.ny-academy-app .gr-lesson-progress button > span { background: #eeede6; border-color: #cbd0c2; color: #65735e; width: 30px; height: 30px; }
+.ny-academy-app .gr-lesson-progress button.active > span { background: #8b543b; border-color: #8b543b; color: #fffefb; }
+.ny-academy-app .gr-lesson-progress button.done > span { background: #e7ece3; border-color: #8caa80; color: #376f57; }
+.ny-academy-app .gr-lesson-progress button i { height: 1px; background: #cbd0c2; }
+.ny-academy-app .gr-lesson-progress button.done i { background: #97ad8a; }
+.ny-academy-app .gr-lesson-progress button:disabled > span { color: #7c8475; border-color: #cbd0c2; }
+.ny-academy-app .gr-lesson-grid { grid-template-columns: 280px minmax(0, 1fr); gap: 24px; }
+.ny-academy-app .gr-briefing-panel { background: #fffefb; border-color: #d9dcd4; }
+.ny-academy-app .gr-mentor { background: #eeeae1; border-color: #d9dcd4; padding: 19px; gap: 13px; }
+.ny-lesson-glyph { width: 35px; height: 43px; display: grid; place-items: center; color: #8b543b; }
+.ny-academy-app .gr-mentor > div > span { color: #776f61; font-size: 8px; }
+.ny-academy-app .gr-mentor strong { font-family: inherit; font-weight: 550; font-size: 17px; letter-spacing: -.3px; }
+.ny-academy-app .gr-mentor small { color: #726e60; font-size: 9px; }
+.ny-academy-app .gr-transmission { padding: 25px 21px 18px; }
+.ny-academy-app .gr-transmission .gr-eyebrow { color: #8b543b; font-size: 9px; }
+.ny-academy-app .gr-transmission p { color: #475440; font-size: 13px; line-height: 1.95; }
+.ny-academy-app .gr-objective { background: #efece2; border-color: #8b543b; }
+.ny-academy-app .gr-objective > span { color: #6f4d39; }
+.ny-academy-app .gr-objective p { color: #5a5e4c; font-size: 12px; }
+.ny-academy-app .gr-concept { border-color: #d9dcd4; }
+.ny-academy-app .gr-concept > span { color: #787664; font-size: 8px; }
+.ny-academy-app .gr-concept h3 { color: #344b36; font-size: 13px; }
+.ny-academy-app .gr-concept p, .ny-academy-app .gr-training-note { color: #64715c; font-size: 11px; }
+.ny-academy-app .gr-hint-button { background: #f4f0e8; border-color: #cbbca5; color: #7b5037 !important; font-size: 11px !important; min-height: 43px; }
+.ny-academy-app .gr-hint { background: #f4eee0; border-color: #b8a780; color: #695942; font-size: 12px; }
+.ny-academy-app .gr-puzzle { background: #fffefb; border-color: #d9dcd4; }
+.ny-academy-app .gr-console-title { background: #eceae2; border-color: #d9dcd4; color: #555f50; font-size: 9px; padding: 17px 20px; }
+.ny-academy-app .gr-console-title > span:last-child { color: #686e5e; font-size: 8px; }
+.ny-academy-app .gr-simulator { background: #f5f4ee; border-color: #d9dcd4; padding: 22px; }
+.ny-academy-app .gr-sim-heading > span { color: #344734; font-size: 12px; }
+.ny-academy-app .gr-sim-heading small, .ny-academy-app .gr-sim-caption { color: #64725c; font-size: 10px !important; }
+.ny-academy-app .gr-options { padding: 22px; gap: 10px; }
+.ny-academy-app .gr-select-prompt { color: #485840; font-size: 11px; }
+.ny-academy-app .gr-select-prompt small { color: #6f7b64; font-size: 10px; }
+.ny-academy-app .gr-option { padding: 16px 14px; background: #fffefb; border-color: #d9dcd4; min-height: 83px; }
+.ny-academy-app .gr-option:hover { background: #f6f3ea; border-color: #b59c82; }
+.ny-academy-app .gr-option.selected { background: #f0e9df; border-color: #ac8062; box-shadow: inset 2px 0 #8b543b; }
+.ny-academy-app .gr-option strong { color: #273d2b; font-size: 13px; }
+.ny-academy-app .gr-option small { color: #5c6b53; font-size: 11px; }
+.ny-academy-app .gr-option-check { background: #e9ece2; border-color: #c8d0be; color: #66755b; }
+.ny-academy-app .gr-option.selected .gr-option-check { background: #8b543b; border-color: #8b543b; color: #fffefb; }
+.ny-academy-app .gr-option-square { border-color: #a5b29a; color: #8b543b; }
+.ny-academy-app .gr-rule-details { border-color: #d9dcd4; }
+.ny-academy-app .gr-rule-details > summary { background: #eeeee6; color: #607052; font-size: 11px; min-height: 44px; }
+.ny-academy-app .gr-code-preview { background: #edf0e8; border-color: #d9dcd4; color: #4a5a40; font-size: 11px; }
+.ny-academy-app .gr-code-preview b, .ny-academy-app .gr-code-preview i, .ny-academy-app .gr-code-lime, .ny-academy-app .gr-code-violet { color: #686346; }
+.ny-academy-app .gr-puzzle-footer { background: #eeeee6; border-color: #d9dcd4; padding: 19px 21px; }
+.ny-academy-app .gr-puzzle-footer > span { color: #66775a; font-size: 11px; }
+.ny-academy-app .gr-feedback { background: #e9f0e3; border-color: #96b383; padding: 21px; }
+.ny-academy-app .gr-feedback-icon, .ny-academy-app .gr-feedback strong, .ny-academy-app .gr-feedback small { color: #376f57; }
+.ny-academy-app .gr-feedback strong { font-family: inherit; font-size: 14px; }
+.ny-academy-app .gr-feedback p { color: #45673c; font-size: 12px; }
+.ny-academy-app .gr-feedback.incorrect { background: #f6ecd9; border-color: #c7a674; }
+.ny-academy-app .gr-feedback.incorrect strong, .ny-academy-app .gr-feedback.incorrect p, .ny-academy-app .gr-feedback.incorrect .gr-feedback-icon { color: #805c2d; }
+.ny-academy-app .gr-next-sector { color: #4c715a; }
+.ny-academy-app .gr-graduation { background: #eaf0e1; border-color: #a5b692; color: #537046; }
+.ny-academy-app .gr-graduation h3 { color: #354f2c; }
+.ny-academy-app .gr-graduation p { color: #5e7152; }
+
+/* Teaching models retain semantic states, with neutral paper surfaces. */
+.ny-academy-app .gr-route-contract, .ny-academy-app .gr-route-person, .ny-academy-app .gr-sim-document, .ny-academy-app .gr-sim-account, .ny-academy-app .gr-sensor-grid > div, .ny-academy-app .gr-permission-doors > div, .ny-academy-app .gr-public-preview > div, .ny-academy-app .gr-topology button { background: #fffefb; border-color: #c4cfb8; color: #536b43 !important; box-shadow: none; }
+.ny-academy-app .gr-route-contract svg, .ny-academy-app .gr-route-contract span, .ny-academy-app .gr-route-contract small, .ny-academy-app .gr-sim-document > span, .ny-academy-app .gr-sim-document strong, .ny-academy-app .gr-sim-document p, .ny-academy-app .gr-sim-document small, .ny-academy-app .gr-sim-account-name, .ny-academy-app .gr-sim-account-name small, .ny-academy-app .gr-sim-account > div > span, .ny-academy-app .gr-sim-account strong, .ny-academy-app .gr-sim-account b, .ny-academy-app .gr-sim-account > small, .ny-academy-app .gr-scan-head, .ny-academy-app .gr-scan-head strong, .ny-academy-app .gr-scan-head small, .ny-academy-app .gr-scan-head > div > span, .ny-academy-app .gr-scan-head > b, .ny-academy-app .gr-public-preview span, .ny-academy-app .gr-public-preview strong, .ny-academy-app .gr-public-preview small, .ny-academy-app .gr-topology span, .ny-academy-app .gr-peek-label, .ny-academy-app .gr-sim-explanation { color: #536b43; }
+.ny-academy-app .gr-route-branches > div { color: #718164; }
+.ny-academy-app .gr-route-branches::before, .ny-academy-app .gr-route-branches::after, .ny-academy-app .gr-route-wire { background: #c4cfb8; }
+.ny-academy-app .gr-route-branches .routed, .ny-academy-app .gr-route-branches .routed .gr-route-person { color: #376f57; background: #e5ecdf; border-color: #89a678; box-shadow: none; }
+.ny-academy-app .gr-route-branches .routed .gr-route-wire { background: #89a678; }
+.ny-academy-app .gr-perspectives button, .ny-academy-app .gr-sim-switch-row > button, .ny-academy-app .gr-sim-play, .ny-academy-app .gr-hide-toggle, .ny-academy-app .gr-preview-return { background: #e7eade; color: #526b43 !important; border-color: #b5c4a7; min-height: 43px; font-size: 11px !important; }
+.ny-academy-app .gr-perspectives button.active, .ny-academy-app .gr-topology button.active { background: #dce6d3; color: #355c37 !important; border-color: #91ab7c; }
+.ny-academy-app .gr-sim-document.revealed, .ny-academy-app .gr-sensor-grid > div.ready, .ny-academy-app .gr-permission-doors > div.open, .ny-academy-app .gr-permission-doors > div.protected { background: #e7efdf; border-color: #91ab7c; color: #376f57; }
+.ny-academy-app .gr-sim-switch-row > span { color: #5e704f; }
+.ny-academy-app .gr-sim-event { background: #e8eee0; border-color: #91ab7c; }
+.ny-academy-app .gr-sim-event strong, .ny-academy-app .gr-sim-event p, .ny-academy-app .gr-sim-event ol { color: #4e6d40; }
+.ny-academy-app .gr-simulator.warning .gr-sim-event, .ny-academy-app .gr-sim-event.unsafe, .ny-academy-app .gr-sim-switch-row > button.fault, .ny-academy-app .gr-permission-doors > div.unsafe, .ny-academy-app .gr-sim-copy-warning { background: #f5ecdb; border-color: #bfa16c; color: #805c2d !important; }
+.ny-academy-app .gr-simulator.warning .gr-sim-event p, .ny-academy-app .gr-sim-event.unsafe p, .ny-academy-app .gr-sim-copy-warning strong { color: #805c2d; }
+.ny-academy-app .gr-simulator.danger .gr-sim-event { background: #f5e2da; border-color: #ba8069; }
+.ny-academy-app .gr-simulator.danger .gr-sim-event strong, .ny-academy-app .gr-simulator.danger .gr-sim-event p { color: #89432d; }
+
+/* Live ledger: unchanged observations and controls, clear data/status hierarchy. */
+.ny-academy-app .gr-live { border: 0; padding: 0; background: transparent; }
+.ny-academy-app .gr-live-intro { border-bottom: 1px solid #d9dcd4; padding-bottom: 15px; }
+.ny-academy-app .gr-kicker { color: #8b543b; font-size: 9px; }
+.ny-academy-app .gr-live .gr-muted { color: #5c6b53; font-size: 12px; }
+.ny-academy-app .gr-status { background: #eaf0e3; border-color: #b5c6a6; color: #3c6343; font-size: 10px; }
+.ny-academy-app .gr-live-mask-entry { background: #eee8df; border-color: #8b543b; padding: 14px 17px; }
+.ny-academy-app .gr-live-mask-entry strong { color: #76503b; }
+.ny-academy-app .gr-live-mask-entry span { color: #70604b; }
+.ny-academy-app .gr-live-connection { background: #fffefb; border-color: #d9dcd4; padding: 22px; }
+.ny-academy-app .gr-live-context { color: #647357; border-color: #cbd4bf; padding: 17px 0; }
+.ny-academy-app .gr-live-context code, .ny-academy-app .gr-live-context strong { color: #334f37; }
+.ny-academy-app .gr-live-tabs { padding: 23px 0; gap: 0; }
+.ny-academy-app .gr-live-tabs > .gr-button { background: transparent; color: #637557 !important; border: 0; border-bottom: 1px solid #bdcbb0; min-width: 170px; }
+.ny-academy-app .gr-live-tabs > .gr-button[aria-pressed=true] { color: #76503b !important; border-bottom: 2px solid #8b543b; }
+.ny-academy-app .gr-live-next { background: #eae8df; border-color: #b4b9a9; border-left-color: #8b543b; padding: 25px; margin-bottom: 28px; }
+.ny-academy-app .gr-live-next h3 { color: #273d2b; font-size: 23px; line-height: 1.5; }
+.ny-academy-app .gr-live-progress-heading { color: #556b46; border-color: #c3cbb7; }
+.ny-academy-app .gr-live-progress-heading small, .ny-academy-app .gr-live-evidence-steps li { color: #66785a; }
+.ny-academy-app .gr-live-evidence-steps li.done, .ny-academy-app .gr-live-evidence-steps li.done > svg { color: #376f57; }
+.ny-academy-app .gr-live-trade-track { background: #f5f4ed; border-color: #c3cbb7; padding: 16px; }
+.ny-academy-app .gr-live-trade-track li { color: #66785a; font-size: 11px; }
+.ny-academy-app .gr-live-trade-track li.done { color: #376f57; }
+.ny-academy-app .gr-live-observe { background: #fffefb; border-color: #cbd4bf; padding: 27px; }
+.ny-academy-app .gr-live-observe > h3 { font-size: 25px; margin: 12px 0; }
+.ny-academy-app .gr-live-roles { border-bottom: 1px solid #cbd4bf; gap: 0; }
+.ny-academy-app .gr-live-roles > .gr-button { background: transparent; border: 0; color: #647a57 !important; min-height: 49px; }
+.ny-academy-app .gr-live-roles > .gr-button[aria-pressed=true] { background: #eee8df; color: #76503b !important; border-bottom: 2px solid #8b543b; }
+.ny-academy-app .gr-live-observation { background: #f4f7ef; border-color: #abc399; padding: 23px; }
+.ny-academy-app .gr-live-observation .gr-live-heading > strong, .ny-academy-app .gr-live-returned-terms strong { color: #355638; }
+.ny-academy-app .gr-live-observation > p, .ny-academy-app .gr-live-returned-terms { color: #5b7351; }
+.ny-academy-app .gr-live-data-card { background: #fffefb; border-color: #d2dbc7; padding: 17px; }
+.ny-academy-app .gr-live-data-card.returned { border-top-color: #6e9d62; }
+.ny-academy-app .gr-live-data-card.reference-only { border-top-color: #b5975d; }
+.ny-academy-app .gr-live-data-card.error { border-top-color: #bd7c69; }
+.ny-academy-app .gr-live-data-card h4, .ny-academy-app .gr-live-card-value, .ny-academy-app .gr-live-data-card dd { color: #304f32; }
+.ny-academy-app .gr-live-data-card > div:first-child > span, .ny-academy-app .gr-live-data-card p, .ny-academy-app .gr-live-data-card dt { color: #667e56; }
+.ny-academy-app .gr-live-data-card details { border-color: #d2dbc7; }
+.ny-academy-app .gr-live-data-card.not-in-response .gr-live-card-value, .ny-academy-app .gr-live-data-card.not-measured .gr-live-card-value { color: #697a5c; }
+.ny-academy-app .gr-live-data-card.error .gr-live-card-value { color: #a34730; }
+.ny-academy-app .gr-live details, .ny-academy-app .gr-live summary, .ny-academy-app .gr-live td details p { color: #527147; font-size: 11px; }
+.ny-academy-app .gr-live pre { background: #ebeee5; border-color: #c9d3bd; color: #4f653f; font-size: 10px; }
+.ny-academy-app .gr-live-empty-desk, .ny-academy-app .gr-live-absent { background: #efeee5; border-color: #c4cbbb; color: #647555; }
+.ny-academy-app .gr-live-empty-desk p, .ny-academy-app .gr-live-absent strong { color: #4d6240; }
+.ny-academy-app .gr-live-empty-desk small, .ny-academy-app .gr-live-absent small { color: #677b58; }
+.ny-academy-app .gr-live-query-checks > span { color: #6b7c5d; }
+.ny-academy-app .gr-live-query-checks > span.observed { color: #376f57; }
+.ny-academy-app .gr-live-raw, .ny-academy-app .gr-live-summary-action, .ny-academy-app .gr-live-footer { border-color: #cbd4bf; }
+.ny-academy-app .gr-live-message, .ny-academy-app .gr-live-feedback { background: #e8efdf; border-color: #a7bd91; color: #406c46; }
+.ny-academy-app .gr-live-feedback > strong, .ny-academy-app .gr-live-feedback > p { color: #406c46; }
+.ny-academy-app .gr-live-error { background: #f7e4dd; border-color: #c18f7a; color: #984731; }
+.ny-academy-app .gr-live-feedback.rejected, .ny-academy-app .gr-live-callout { background: #f5ead8; border-color: #c7a772; }
+.ny-academy-app .gr-live-feedback.rejected > strong, .ny-academy-app .gr-live-feedback.rejected > p, .ny-academy-app .gr-live-callout > strong, .ny-academy-app .gr-live-callout p { color: #805c2d !important; }
+.ny-academy-app .gr-live-feedback.pending { background: #eeeee5; border-color: #bdc3ac; }
+.ny-academy-app .gr-live-feedback.pending > strong, .ny-academy-app .gr-live-feedback.pending > p { color: #677051; }
+.ny-academy-app .gr-live-table-scroll { border-color: #cbd4bf; }
+.ny-academy-app .gr-live thead { background: #e4e9dc; }
+.ny-academy-app .gr-live th, .ny-academy-app .gr-live td { border-color: #cbd4bf; color: #3f6035; font-size: 12px; }
+.ny-academy-app .gr-live .gr-status.met { background: #e6eedb; border-color: #9bb986; color: #376f57; }
+.ny-academy-app .gr-live .gr-status.not_met { background: #f4e7ce; border-color: #c3a465; color: #886126; }
+.ny-academy-app .gr-live .gr-status.inconclusive { background: #eaece1; border-color: #bcc3ac; color: #606c51; }
+
+/* Reference library and accessible learner dialogs. */
+.ny-academy-app .gr-archive-toolbar { border-color: #cdd5c1; padding-bottom: 17px; }
+.ny-academy-app .gr-archive-toolbar button { background: transparent; color: #5d7150; border-color: #c4d0b6; min-height: 43px; font-size: 12px; }
+.ny-academy-app .gr-archive-toolbar button.active { background: #182723; color: #fffefb; border-color: #182723; }
+.ny-academy-app .gr-archive-toolbar input { color: #354e30; background: #fffefb; border-color: #c4d0b6; padding: 12px 14px; font-size: 12px; }
+.ny-academy-app .gr-archive-toolbar input::placeholder { color: #707d64; }
+.ny-academy-app .gr-archive-grid { gap: 20px; }
+.ny-academy-app .gr-archive-card { background: #fffefb; border-color: #d9dcd4; padding: 30px; }
+.ny-academy-app .gr-archive-card .gr-eyebrow { color: #8b543b; font-size: 9px; }
+.ny-academy-app .gr-archive-card h2 { color: #304e30; font-size: 22px; font-weight: 500; }
+.ny-academy-app .gr-archive-card > strong { color: #47673c; }
+.ny-academy-app .gr-archive-card p { color: #586e4b; font-size: 13px; }
+.ny-academy-app .gr-archive-card a { color: #8b543b; font-size: 12px; min-height: 30px; }
+.ny-academy-app .gr-archive-card > small { color: #6a7a5e; font-size: 10px; }
+.ny-academy-app .gr-archive-sources { background: #eaeade; border-color: #cdd5c1; padding: 23px; }
+.ny-academy-app .gr-archive-sources > span { color: #8b543b; font-size: 9px; }
+.ny-academy-app .gr-archive-sources p { color: #5a7150; font-size: 12px; margin: 0; }
+.ny-academy-app .gr-empty { color: #5a7150; border-color: #a9b695; }
+.ny-academy-app .gr-modal-backdrop { background: #13271bc2; backdrop-filter: blur(8px); }
+.ny-academy-app .gr-modal { background: #fbfaf5; border-color: #cbd1c1; box-shadow: 0 25px 90px #13271b3d; padding: 38px; max-width: 590px; }
+.ny-academy-app .gr-modal-close { color: #4f6740 !important; min-width: 36px; min-height: 36px; }
+.ny-academy-app .gr-modal h2 { color: #273d2b; font-size: 28px; font-weight: 500; letter-spacing: -.7px; }
+.ny-academy-app .gr-modal > p { color: #536b43; font-size: 13px; }
+.ny-academy-app .gr-modal li::before { color: #8b543b; }
+.ny-academy-app .gr-modal li strong { color: #354f32; }
+.ny-academy-app .gr-modal li span { color: #5c744c; }
+.ny-academy-app .gr-modal-note { background: #eee9df; border-color: #8b543b; color: #6e614e !important; font-size: 12px !important; }
+.ny-profile-summary { display: flex; align-items: center; gap: 16px; margin: 25px 0; padding: 17px; background: #eee9df; }
+.ny-profile-summary .ny-profile-glyph { width: 47px; height: 50px; }
+.ny-profile-summary strong { display: block; font-size: 17px; font-weight: 500; }
+.ny-profile-summary small { display: block; color: #676d5b; font-size: 11px; margin-top: 4px; }
+.ny-academy-app .gr-callsign { color: #5e704e; font-family: inherit; font-size: 12px; letter-spacing: 0; }
+.ny-academy-app .gr-callsign input { background: #fffefb; border-color: #b3c29f; color: #344b2c; font-family: inherit; font-size: 15px; letter-spacing: 0; }
+.ny-academy-app .gr-storage-warning { background: #f5ead8; color: #805c2d; border-color: #c7a772; }
+
+@media (max-width: 1300px) {
+  .ny-academy-app .gr-main { padding: 32px 31px 0; }
+  .ny-academy-app .gr-topbar { padding: 0 31px; }
+  .ny-academy-app .gr-lesson-grid { grid-template-columns: 250px minmax(0, 1fr); gap: 20px; }
+  .ny-academy-app .gr-mission-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .ny-start-path { padding-right: 24px; }
+  .ny-start-path + .ny-start-path { padding-left: 24px; }
+  .ny-academy-app .gr-live-data-cards { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+@media (max-width: 1050px) {
+  .ny-academy-app .gr-sidebar { width: 208px; padding: 29px 18px 21px; }
+  .ny-academy-app .gr-workspace { margin-left: 208px; }
+  .ny-academy-app .gr-main { padding: 29px 25px 0; }
+  .ny-academy-app .gr-topbar { padding: 0 25px; }
+  .ny-academy-app .gr-top-tools { gap: 8px; }
+  .ny-academy-app .gr-training-status { display: none; }
+  .ny-academy-app .gr-lesson-grid { grid-template-columns: 1fr; }
+  .ny-academy-app .gr-briefing-panel { display: block; }
+  .ny-academy-app .gr-concept { display: block; }
+  .ny-academy-app .gr-objective { margin: 0 20px 21px; }
+  .ny-start-paths { grid-template-columns: 1fr 1fr; }
+  .ny-start-path h2 { font-size: 19px; }
+  .ny-academy-app .gr-live-roles { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+@media (max-height: 850px) and (min-width: 761px) {
+  .ny-academy-app .gr-sidebar { padding-top: 23px; }
+  .ny-academy-app .ny-edition { margin-top: 19px; padding-bottom: 16px; }
+  .ny-academy-app .gr-side-label { margin-top: 18px; }
+  .ny-academy-app .gr-sidebar nav { margin-top: 21px; }
+  .ny-academy-app .gr-sidebar-bottom { padding-top: 21px; }
+}
+@media (max-width: 760px) {
+  .ny-academy-app .gr-sidebar { width: 268px; padding: 29px 23px; }
+  .ny-academy-app .gr-workspace { margin-left: 0; }
+  .ny-academy-app .gr-topbar { height: 66px; padding: 0 19px; }
+  .ny-academy-app .gr-top-path { gap: 10px; }
+  .ny-academy-app .gr-top-tools { gap: 4px; }
+  .ny-academy-app .gr-top-tools > button { width: 33px; height: 42px; padding: 8px; }
+  .ny-academy-app .gr-main { padding: 25px 22px 0; }
+  .ny-academy-app .gr-skip { left: 19px; }
+  .ny-academy-app .gr-mobile-scrim { background: #14261dc2; }
+  .ny-city-banner { min-height: 266px; }
+  .ny-city-banner-copy { padding: 29px 25px; }
+  .ny-city-banner-copy h1 { font-size: 33px; }
+  .ny-city-banner-copy p { max-width: 245px; }
+  .ny-photo-caption { bottom: 15px; right: 15px; font-size: 7px; }
+  .ny-start-paths { margin-top: 25px; }
+  .ny-start-path { padding: 24px 20px 26px 0; }
+  .ny-start-path + .ny-start-path { padding: 24px 0 26px 20px; }
+  .ny-start-path > p { font-size: 12px; min-height: 66px; }
+  .ny-start-path .gr-button { gap: 12px; padding: 12px; justify-content: space-between; }
+  .ny-academy-app .gr-section-heading h2 { font-size: 22px; }
+  .ny-academy-app .gr-mission-card { padding: 20px 21px 0; }
+  .ny-academy-app .gr-page-title h1 { font-size: 29px; }
+  .ny-academy-app .gr-page-title p { font-size: 12px; }
+  .ny-academy-app .gr-mentor { padding: 19px; }
+  .ny-academy-app .gr-transmission { padding: 23px 20px 18px; }
+  .ny-academy-app .gr-live-next, .ny-academy-app .gr-live-observe, .ny-academy-app .gr-live-observation { padding: 20px; }
+  .ny-academy-app .gr-live-next h3 { font-size: 20px; }
+  .ny-academy-app .gr-live-tabs > .gr-button { min-width: 0; }
+  .ny-academy-app .gr-live th, .ny-academy-app .gr-live td { font-size: 11px; }
+  .ny-academy-app .gr-footer { font-size: 8px; gap: 10px; }
+  .ny-academy-app .gr-archive-card { padding: 25px; }
+  .ny-academy-app .gr-modal { padding: 32px 25px; }
+  .ny-academy-app .gr-modal h2 { font-size: 25px; }
+}
+@media (max-width: 520px) {
+  .ny-academy-app .gr-topbar { padding: 0 15px; }
+  .ny-academy-app .gr-top-path { gap: 8px; font-size: 9px; }
+  .ny-academy-app .gr-top-path strong { font-size: 11px; }
+  .ny-academy-app .gr-top-tools > button:first-of-type { display: none; }
+  .ny-academy-app .gr-main { padding: 23px 18px 0; }
+  .ny-city-banner { min-height: 285px; }
+  .ny-city-banner > img { object-position: 60% 50%; }
+  .ny-city-banner-shade { background: linear-gradient(90deg, #ebe9dfed, #ebe9dfaa 55%, #ebe9df20); }
+  .ny-city-banner-copy { padding: 27px 23px 40px; }
+  .ny-city-banner-copy .gr-eyebrow { font-size: 8px; max-width: 180px; }
+  .ny-city-banner-copy h1 { font-size: 32px; margin-top: 22px; }
+  .ny-city-banner-copy p { max-width: 226px; font-size: 11px; }
+  .ny-start-paths { grid-template-columns: 1fr; }
+  .ny-start-path, .ny-start-path + .ny-start-path { padding: 25px 0 27px; border-left: 0; }
+  .ny-start-path + .ny-start-path { border-top: 1px solid #d4d8cc; }
+  .ny-start-path h2 { font-size: 20px; }
+  .ny-start-path > p { min-height: 0; }
+  .ny-start-path > .gr-button { min-width: 197px; padding: 13px 17px; margin-top: 18px; }
+  .ny-academy-app .gr-section-heading { margin-top: 34px; align-items: flex-start; gap: 15px; }
+  .ny-academy-app .gr-section-heading h2 { font-size: 21px; max-width: 240px; }
+  .ny-academy-app .gr-mission-counter { margin-top: 5px; font-size: 10px; }
+  .ny-academy-app .gr-mission-grid { grid-template-columns: 1fr; }
+  .ny-academy-app .gr-mission-card { padding: 23px 24px 0; }
+  .ny-lesson-mark { margin: 22px 0 18px; }
+  .ny-academy-app .gr-page-title { display: block; }
+  .ny-academy-app .gr-reward { display: inline-flex; margin-top: 16px; }
+  .ny-academy-app .gr-page-title h1 { font-size: 28px; }
+  .ny-academy-app .gr-simulator, .ny-academy-app .gr-options { padding: 19px 15px; }
+  .ny-academy-app .gr-option { padding: 15px 11px; gap: 10px; }
+  .ny-academy-app .gr-option strong { font-size: 12px; }
+  .ny-academy-app .gr-puzzle-footer { padding: 17px 14px; flex-wrap: wrap; }
+  .ny-academy-app .gr-puzzle-footer > .gr-button { margin-left: auto; }
+  .ny-academy-app .gr-live-connection { padding: 18px; }
+  .ny-academy-app .gr-live-next, .ny-academy-app .gr-live-observe, .ny-academy-app .gr-live-observation { padding: 17px; }
+  .ny-academy-app .gr-live-observe > h3 { font-size: 22px; }
+  .ny-academy-app .gr-live-data-cards { grid-template-columns: minmax(0, 1fr); }
+  .ny-academy-app .gr-live .gr-muted { font-size: 12px; }
+  .ny-academy-app .gr-profile-actions { align-items: stretch; flex-direction: column; }
+  .ny-academy-app .gr-profile-actions .gr-text-button { justify-content: center; min-height: 40px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .ny-academy-app *, .ny-academy-app *::before, .ny-academy-app *::after { animation: none !important; transition: none !important; scroll-behavior: auto !important; }
+  .ny-academy-app .gr-mission-card:not(:disabled):hover { transform: none; }
+}

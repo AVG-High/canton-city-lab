@@ -1,0 +1,127 @@
+{
+  "mode": "built-in ImageGen edit; Sharp delivery resize and JPEG encoding only",
+  "nativeResolution": "1672x941",
+  "note": "4K delivery is Lanczos3 resampling, not native 4K generation. No added sharpening or blur.",
+  "sources": [
+    {
+      "name": "nyc-city-immersive",
+      "width": 1672,
+      "height": 941,
+      "bytes": 2695906,
+      "sha256": "945fd8b607c15ed48cd35cdd781c2bea71e581737b4584ba1743e71fa80349bc"
+    },
+    {
+      "name": "nyc-waterfront-street",
+      "width": 1672,
+      "height": 941,
+      "bytes": 2722406,
+      "sha256": "90fa78582aa0e1809f96f8ab40516f6067a8b4d5a47dad55d0bd9c23cbfda1db"
+    },
+    {
+      "name": "nyc-building-lobby",
+      "width": 1672,
+      "height": 941,
+      "bytes": 2401003,
+      "sha256": "d7b69deb40978189ee25d39ace1ac071662cf8e0b0a0de63283b277b69f75e13"
+    },
+    {
+      "name": "nyc-office-arrival",
+      "width": 1672,
+      "height": 941,
+      "bytes": 2366428,
+      "sha256": "bf2b96dd9afc4643c54cd2d967066c538d8bfb85c642ac2e15e463d2d5a9c96c"
+    }
+  ],
+  "deliveries": [
+    {
+      "filename": "nyc-city-immersive.jpg",
+      "width": 3840,
+      "height": 2160,
+      "quality": 95,
+      "chromaSubsampling": "4:4:4",
+      "bytes": 2831059,
+      "sha256": "f86761a402cdc82d1df0d6cf177a3d0ba938a5b79240a606c2c4fbf066e18359",
+      "matchingProjects": true
+    },
+    {
+      "filename": "nyc-city-immersive-mobile.jpg",
+      "width": 1920,
+      "height": 1080,
+      "quality": 92,
+      "chromaSubsampling": "4:4:4",
+      "bytes": 825478,
+      "sha256": "652428f0a5ffd256d053381e092eb7b67714d0a3b66c24d862ef959b973c1520",
+      "matchingProjects": true
+    },
+    {
+      "filename": "nyc-waterfront-street.jpg",
+      "width": 3840,
+      "height": 2160,
+      "quality": 95,
+      "chromaSubsampling": "4:4:4",
+      "bytes": 2838898,
+      "sha256": "5e0c7922b8f033a375ca4e5250ed311e63df44d85dae7d021cd81fb9b11ea525",
+      "matchingProjects": true
+    },
+    {
+      "filename": "nyc-waterfront-street-mobile.jpg",
+      "width": 1920,
+      "height": 1080,
+      "quality": 92,
+      "chromaSubsampling": "4:4:4",
+      "bytes": 822147,
+      "sha256": "1d5a1d0053e1a16c89e08db4d6b14f5c79b90e489b719518bd51295af2370453",
+      "matchingProjects": true
+    },
+    {
+      "filename": "nyc-building-lobby.jpg",
+      "width": 3840,
+      "height": 2160,
+      "quality": 95,
+      "chromaSubsampling": "4:4:4",
+      "bytes": 2536149,
+      "sha256": "6a51fbcae3f6f585809cc814a7a1e49b305e48089d83f9be72e35e8db7c5ac71",
+      "matchingProjects": true
+    },
+    {
+      "filename": "nyc-building-lobby-mobile.jpg",
+      "width": 1920,
+      "height": 1080,
+      "quality": 92,
+      "chromaSubsampling": "4:4:4",
+      "bytes": 721856,
+      "sha256": "12ae633f86a65e0836cc76944bee01002058c62dccca3778369e14339da71526",
+      "matchingProjects": true
+    },
+    {
+      "filename": "nyc-office-arrival.jpg",
+      "width": 3840,
+      "height": 2160,
+      "quality": 95,
+      "chromaSubsampling": "4:4:4",
+      "bytes": 2485204,
+      "sha256": "bd7d8c48cb53412ad9e6825769c073b14b155ab663a38b82cb271a6f1082b4f8",
+      "matchingProjects": true
+    },
+    {
+      "filename": "nyc-office-arrival-mobile.jpg",
+      "width": 1920,
+      "height": 1080,
+      "quality": 92,
+      "chromaSubsampling": "4:4:4",
+      "bytes": 705317,
+      "sha256": "42876eb97cf0588d4674cc2d4cd3724e19948a0d53a8150c91199f8ae9c8ba15",
+      "matchingProjects": true
+    },
+    {
+      "filename": "nyc-hero.jpg",
+      "width": 1920,
+      "height": 1080,
+      "quality": 95,
+      "chromaSubsampling": "4:4:4",
+      "bytes": 1039768,
+      "sha256": "3e3b844433892c2266ccc679e1a63e5d8681aa46d56851bb037ac7dfd5f7d6d9",
+      "matchingProjects": true
+    }
+  ]
+}

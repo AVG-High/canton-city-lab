@@ -1,0 +1,23 @@
+{
+  "asset": "nyc-waterfront-street-source.png",
+  "nativeDimensions": {
+    "width": 1672,
+    "height": 941
+  },
+  "bytes": 2722406,
+  "mode": "built-in ImageGen edit",
+  "selectedGenerationPath": "C:/Users/USER/.codex/generated_images/01a1107a-2864-7150-a13a-dbf1e520f556/exec-4fe30ad1-0c90-40fb-b713-6058a5a8156f.png",
+  "sourceEditTarget": "C:/Users/USER/Documents/Codex/2026-09-15/new-chat/outputs/privacy-decision-lab/docs/art/nyc-waterfront-street-source.png",
+  "prompt": "Use case: precise-object-edit\nAsset type: production web immersive city entrance background, 16:9 landscape.\nInput image 1 is the EDIT TARGET, not a loose style reference. Primary request: remaster this exact approved waterfront building approach image into the highest actual native output resolution available, ideally 3840 x 2160 pixels, with crisp, physically believable architectural photographic detail. Preserve the exact camera position, perspective, framing, layout and all objects: pale limestone luxury Manhattan building façade and bronze-and-glass entrance in the center/right, river and riverside railing at left, lanterns, distant glass towers, trees and planters, patterned stone pavement, same warm morning light. Do not change the scene or introduce a new design. Reconstruct and resolve genuine small-scale detail cleanly: perfectly straight window mullions and façade joints, individual stone grain without speckled noise, clean paving seams, bronze metallic reflections, transparent entrance glazing, natural leaves and clear river highlights. Architectural photography, high dynamic range without exaggerated HDR, edge-to-edge focus and clarity, realistic warm ivory/bronze materials. No soft painterly surfaces, no depth-of-field blur, no bloom or haze added, no oversharpening halos, no synthetic excessive texture, no text, logos, watermark, UI, people, vehicles or new objects. Keep composition immediately recognizable as the original. Opaque image.",
+  "retry": {
+    "generationPath": "C:/Users/USER/.codex/generated_images/01a1107a-2864-7150-a13a-dbf1e520f556/exec-a8cbda0c-fa29-4d0b-adb5-3a35960321cc.png",
+    "nativeDimensions": {
+      "width": 1672,
+      "height": 941
+    },
+    "bytes": 2686722,
+    "prompt": "This is an image-resolution remaster of the attached exact image. Produce this exact architectural photograph at 3840 x 2160 actual native pixels, or the largest native landscape image your renderer supports. Preserve all framing, camera geometry, windows, limestone façade, bronze glass entrance, river-left railing, trees, paving, lanterns, warm light and color unchanged. Resolve high-frequency natural stone, glass, foliage and straight edge detail with clean photographic clarity throughout; remove painterly softness. Do not redesign, add objects, sharpen with halos, or insert text. Opaque 16:9. The output image must be the image itself, not a mockup or border.",
+    "discardedReason": "Still same native dimensions; introduced more repetitive fine pattern on paving/stone. First edit retains original materials more faithfully."
+  },
+  "observations": "Exact composition is retained. Clean bronze/window mullions, facade seams, warm lighting and foliage. Native resolution did not increase despite explicit max/3840 request. Do not describe as native 4K."
+}

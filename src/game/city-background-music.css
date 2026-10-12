@@ -1,0 +1,36 @@
+.city-bgm { --city-bgm-offset: max(18px, calc(env(safe-area-inset-bottom) + 12px)); position: fixed; right: max(20px, calc(env(safe-area-inset-right) + 12px)); bottom: var(--city-bgm-offset); z-index: 30; color: #f4e8d5; font: 11px/1.5 'Arial', 'Malgun Gothic', sans-serif; color-scheme: light; }
+.city-bgm-pill { display: flex; align-items: stretch; height: 42px; border: 1px solid #aa8b65; border-radius: 24px; background: #2e281feb; box-shadow: 0 3px 16px #17110d30; backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); }
+.ghost-app .city-bgm button { display: inline-flex; justify-content: center; align-items: center; gap: 8px; padding: 0; background: transparent; color: #f4e8d5; border: 0; font: inherit; cursor: pointer; }
+.ghost-app .city-bgm button:hover { background: #b4936c24; }
+.ghost-app .city-bgm .city-bgm-toggle { min-width: 96px; padding: 0 13px; border-radius: 24px 0 0 24px; }
+.city-bgm-toggle > svg { flex-shrink: 0; color: #ddbe90; }
+.ghost-app .city-bgm .city-bgm-disclosure { width: 40px; border-left: 1px solid #ab8c644f; border-radius: 0 24px 24px 0; }
+.city-bgm-disclosure[aria-expanded="true"] svg { transform: rotate(180deg); }
+.ghost-app .city-bgm button:focus-visible, .ghost-app .city-bgm a:focus-visible, .ghost-app .city-bgm input:focus-visible { outline: 2px solid #ddbe90; outline-offset: 4px; }
+.city-bgm-panel { position: absolute; right: 0; bottom: calc(100% + 10px); width: 260px; max-width: calc(100vw - 32px); padding: 18px; border: 1px solid #aa8b65; border-radius: 12px; background: #f6f0e5f7; box-shadow: 0 5px 24px #17110d35; color: #443a30; }
+.city-bgm-caption { display: block; margin-bottom: 8px; color: #786451; font-size: 8px; letter-spacing: 1.4px; }
+.ghost-app .city-bgm .city-bgm-credit { display: block; width: fit-content; color: #533b29; font: 19px/1.4 'Georgia', 'Times New Roman', serif; text-decoration: none; }
+.ghost-app .city-bgm .city-bgm-artist { display: block; width: fit-content; margin-top: 4px; color: #6c4e38; font-size: 10px; text-decoration: none; }
+.city-bgm-volume { display: flex; align-items: center; justify-content: space-between; margin: 19px 0 4px; color: #554534; }
+.city-bgm-volume > span { display: flex; align-items: center; gap: 7px; }
+.city-bgm-volume output { font-variant-numeric: tabular-nums; }
+.ghost-app .city-bgm .city-bgm-device-volume { display: flex; align-items: flex-start; gap: 8px; margin: 17px 0 10px; color: #695e50; font-size: 10px; line-height: 1.7; }
+.city-bgm-device-volume > svg { flex-shrink: 0; margin-top: 2px; }
+.ghost-app .city-bgm input[type="range"] { display: block; width: 100%; min-height: 28px; margin: 0; padding: 0; border: 0; background: transparent; accent-color: #8b6546; cursor: pointer; touch-action: pan-y; }
+.ghost-app .city-bgm .city-bgm-note { margin: 10px 0 11px; color: #695e50; font-size: 10px; line-height: 1.7; }
+.ghost-app .city-bgm .city-bgm-license { color: #6c4e38; font-size: 9px; text-decoration: underline; text-underline-offset: 3px; }
+.city-bgm a:hover { text-decoration: underline !important; text-underline-offset: 3px; }
+.ghost-app .city-bgm .city-bgm-panel-error { margin: 13px 0 0; padding-top: 11px; border-top: 1px solid #c6b393; color: #713f30; font-size: 10px; line-height: 1.7; }
+.ghost-app .city-bgm .city-bgm-message { position: absolute; right: 0; bottom: calc(100% + 10px); width: 260px; max-width: calc(100vw - 32px); margin: 0; padding: 12px 15px; border: 1px solid #aa8b65; border-radius: 10px; background: #f6f0e5f7; color: #713f30; box-shadow: 0 5px 24px #17110d25; font-size: 10px; line-height: 1.7; }
+.city-bgm-sr-only { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
+.city-bgm .city-bgm-panel, .city-bgm .city-bgm-message { max-height: calc(100vh - var(--city-bgm-offset) - 64px); max-height: calc(100dvh - var(--city-bgm-offset) - 64px); overflow-y: auto; overscroll-behavior: contain; }
+.city-bgm-loading { animation: city-bgm-spin 1s linear infinite; }
+@keyframes city-bgm-spin { to { transform: rotate(360deg); } }
+@media (max-width: 700px) {
+  .city-bgm { right: max(12px, calc(env(safe-area-inset-right) + 8px)); --city-bgm-offset: max(12px, calc(env(safe-area-inset-bottom) + 8px)); }
+  .ny-entry-app .city-bgm { --city-bgm-offset: max(104px, calc(env(safe-area-inset-bottom) + 92px)); }
+  .ghost-app .city-bgm .city-bgm-toggle { min-width: 68px; padding: 0 10px; gap: 6px; }
+  .ghost-app .city-bgm .city-bgm-disclosure { width: 44px; }
+  .city-bgm-action { display: none; }
+}
+@media (prefers-reduced-motion: reduce) { .city-bgm-loading { animation: none; } }

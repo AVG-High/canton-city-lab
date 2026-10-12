@@ -1,0 +1,197 @@
+/* A menu-driven application shell. Ledger requests and learning state are unchanged. */
+body:has(.cw-app) { overflow: hidden; }
+.ghost-app.ny-academy-app.cw-app { height: 100dvh; min-height: 0; overflow: hidden; }
+.cw-app .gr-workspace { height: 100%; display: flex; flex-direction: column; }
+.ny-academy-app.cw-app .gr-topbar { height: 64px; flex-shrink: 0; padding: 0 34px; background: #f7f5ef; }
+.ny-academy-app.cw-app .gr-main { width: 100%; max-width: none; min-height: 0; flex: 1; padding: 25px 34px 18px; overflow-y: auto; overscroll-behavior-y: contain; scrollbar-width: thin; scrollbar-color: #b3b9af #f3f1eb; }
+.ny-academy-app.cw-app .gr-sidebar { padding: 25px 23px 19px; }
+.ny-academy-app.cw-app .ny-edition { margin-top: 16px; padding-bottom: 17px; }
+.ny-academy-app.cw-app .gr-side-label { margin-top: 18px; color: #646d62; }
+.ny-academy-app.cw-app .gr-sidebar nav { margin-top: 18px; }
+.ny-academy-app.cw-app .gr-nav { min-height: 42px; }
+.ny-academy-app.cw-app .gr-side-line { margin-top: 19px; }
+.ny-academy-app.cw-app .gr-mini-missions button { min-height: 34px; }
+.ny-academy-app.cw-app .gr-sidebar-bottom { padding-top: 19px; }
+.ny-academy-app.cw-app .gr-sidebar-bottom p { margin: 0 0 13px; }
+.ny-academy-app.cw-app .gr-footer { margin-top: 26px; padding: 19px 0 0; }
+.cw-main-dashboard > .gr-footer { display: none; }
+.cw-dashboard { width: 100%; max-width: 1440px; margin: 0 auto; }
+.cw-dashboard-heading { display: flex; justify-content: space-between; align-items: center; gap: 22px; margin-bottom: 18px; }
+.cw-dashboard-heading h1 { font-size: clamp(22px, 2.15vw, 29px); line-height: 1.4; letter-spacing: -.9px; margin: 4px 0 0; }
+.cw-dashboard-heading .gr-eyebrow { font-size: 8px; letter-spacing: 1.5px; color: #746a5d; }
+.cw-resume { display: inline-flex; align-items: center; justify-content: space-between; gap: 13px; min-height: 43px; padding: 10px 15px; border: 1px solid #c4c8bd; background: #fcfbf7; color: #324239; font-size: 12px !important; white-space: nowrap; }
+.cw-resume:hover { border-color: #8b543b; background: #eee9e0; }
+.cw-resume > svg:first-child { color: #8b543b; }
+
+.cw-trade-context { display: flex; align-items: center; gap: 24px; min-height: 61px; padding: 12px 20px; margin-bottom: 21px; border: 1px solid #d8d9cf; background: #eae7de; }
+.cw-trade-name { display: flex; align-items: center; gap: 13px; }
+.cw-trade-name > svg { color: #8b543b; flex-shrink: 0; }
+.cw-trade-name small { display: block; color: #6b6e62; font-size: 9px; line-height: 1.3; margin-bottom: 4px; }
+.cw-trade-name strong { display: block; font-size: 12px; font-weight: 600; line-height: 1.3; white-space: nowrap; }
+.cw-trade-name strong span { padding: 0 6px; color: #8b543b; }
+.cw-trade-amount { display: flex; align-items: center; gap: 17px; margin-left: auto; }
+.cw-trade-amount > span { color: #646b60; font: 8px/1.4 var(--gr-mono); letter-spacing: .25px; white-space: nowrap; }
+.cw-trade-amount b { margin-left: 8px; color: #26382e; font: 19px/1.2 'Georgia', 'Times New Roman', serif; font-weight: 400; letter-spacing: -.4px; }
+.cw-trade-amount > svg { color: #7d8675; }
+.cw-environment { padding-left: 18px; border-left: 1px solid #c8cec0; color: #646b60; font-size: 9px; white-space: nowrap; }
+
+.cw-section-heading { display: flex; justify-content: space-between; align-items: baseline; gap: 12px; margin-bottom: 11px; }
+.cw-section-heading h2 { margin: 0; font-size: 15px; font-weight: 600; line-height: 1.5; letter-spacing: -.3px; }
+.cw-section-heading > span { color: #687164; font-size: 10px; line-height: 1.5; }
+.cw-role-section { margin-bottom: 23px; }
+.cw-role-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 11px; }
+.cw-role-card { display: flex; flex-direction: column; align-items: stretch; min-width: 0; min-height: 130px; padding: 15px 17px 12px; text-align: left; background: #fffefb; border: 1px solid #d1d5c9; }
+.cw-role-card:hover { border-color: #9e7155; background: #f9f5ec; }
+.cw-role-top { display: flex; justify-content: space-between; align-items: center; color: #8b543b; margin-bottom: 8px; }
+.cw-role-code { color: #83745f; font: 11px/1.2 var(--gr-mono); letter-spacing: 1px; }
+.cw-role-card > strong { font-size: 15px; font-weight: 550; line-height: 1.35; color: #263b2e; }
+.cw-role-subtitle { display: block; margin: 5px 0 10px; color: #626e5b; font-size: 11px; line-height: 1.65; word-break: keep-all; }
+.cw-role-action { display: flex; justify-content: space-between; align-items: center; gap: 10px; margin-top: auto; color: #7d513c; font-size: 10px; line-height: 1.4; }
+.cw-role-auditor .cw-role-top { color: #596e70; }
+.cw-role-outsider .cw-role-top { color: #737260; }
+.cw-role-card:focus-visible, .cw-lesson:focus-visible, .cw-tool:focus-visible, .cw-resume:focus-visible { outline: 2px solid #8b543b; outline-offset: 3px; }
+
+.cw-dashboard-bottom { display: grid; grid-template-columns: minmax(0, 1.65fr) minmax(0, 1fr); gap: 24px; }
+.cw-learning-panel, .cw-tools-panel { min-width: 0; }
+.cw-lesson-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px; }
+.cw-lesson { position: relative; display: flex; align-items: center; gap: 12px; min-width: 0; min-height: 76px; padding: 12px 14px; text-align: left; background: #fbfaf5; border: 1px solid #d8dcd0; }
+.cw-lesson.available { border-color: #ad8971; background: #fffefb; }
+.cw-lesson.done { background: #f5f7f0; border-color: #b6c4b1; }
+.ny-academy-app.cw-app .cw-lesson:disabled { background: #edece5; border-color: #d7dbce; color: #71786a; }
+.cw-lesson:not(:disabled):hover { border-color: #8b543b; background: #f7f0e7; }
+.cw-lesson-icon { display: grid; place-items: center; flex-shrink: 0; width: 27px; height: 36px; color: #8b543b; }
+.cw-lesson.locked .cw-lesson-icon { color: #7a8370; }
+.cw-lesson-copy { display: block; min-width: 0; }
+.cw-lesson-copy > small { display: block; font: 7px/1.5 var(--gr-mono); letter-spacing: .6px; color: #7a8173; }
+.cw-lesson-copy > strong { display: block; font-size: 13px; font-weight: 550; line-height: 1.5; color: #2f4234; }
+.cw-lesson-copy > span { display: block; font-size: 9px; line-height: 1.7; color: #7a604a; }
+.cw-lesson.locked .cw-lesson-copy > strong { color: #6c7565; }
+.cw-lesson.locked .cw-lesson-copy > span { color: #737c6b; }
+.cw-lesson.done .cw-lesson-copy > span { color: #477053; }
+.cw-lesson-state { margin-left: auto; flex-shrink: 0; display: grid; place-items: center; color: #8b543b; }
+.cw-lesson.done .cw-lesson-state { color: #477053; }
+.cw-lesson.locked .cw-lesson-state { color: #7b8373; }
+.cw-learning-note { margin: 11px 0 0; font-size: 10px; color: #68725f; }
+
+.cw-tool { display: flex; align-items: center; gap: 13px; width: 100%; min-height: 59px; padding: 12px 0; background: transparent; border: 0; border-bottom: 1px solid #d3d8ca; text-align: left; }
+.cw-tool:first-of-type { border-top: 1px solid #d3d8ca; }
+.cw-tool > svg:first-child { color: #8b543b; margin-left: 3px; }
+.cw-tool > svg:last-child { margin-left: auto; color: #78826e; }
+.cw-tool > span { min-width: 0; }
+.cw-tool strong { display: block; color: #2f4234; font-size: 12px; font-weight: 550; line-height: 1.5; }
+.cw-tool small { display: block; color: #68765f; font-size: 10px; line-height: 1.6; }
+.cw-tool:hover { background: #ebe7dd; }
+.cw-workspace-note { display: flex; gap: 10px; margin-top: 12px; color: #75634e; }
+.cw-workspace-note > svg { margin-top: 3px; flex-shrink: 0; }
+.cw-workspace-note p { margin: 0; font-size: 10px; line-height: 1.8; }
+
+@media (max-width: 1180px) {
+  .ny-academy-app.cw-app .gr-main { padding: 23px 27px 18px; }
+  .ny-academy-app.cw-app .gr-topbar { padding: 0 27px; }
+  .cw-trade-context { gap: 17px; }
+  .cw-environment { display: none; }
+  .cw-role-card { padding: 14px 14px 12px; }
+  .cw-dashboard-bottom { gap: 20px; grid-template-columns: minmax(0, 1.65fr) minmax(0, 1fr); }
+  .cw-lesson { padding: 11px 12px; gap: 10px; }
+}
+@media (max-width: 970px) {
+  .cw-role-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .cw-dashboard-bottom { grid-template-columns: 1fr; }
+  .cw-role-card { min-height: 122px; }
+  .cw-tools-panel { padding-top: 1px; }
+  .cw-tools-panel .cw-section-heading { margin-bottom: 4px; }
+  .cw-tool { min-height: 57px; }
+}
+@media (min-width: 971px) and (max-height: 760px) {
+  .ny-academy-app.cw-app .gr-main { padding-top: 21px; padding-bottom: 15px; }
+  .cw-dashboard-heading { margin-bottom: 15px; }
+  .cw-trade-context { min-height: 58px; margin-bottom: 18px; }
+  .cw-role-section { margin-bottom: 18px; }
+  .cw-role-card { min-height: 126px; padding-top: 12px; }
+  .cw-lesson { min-height: 74px; padding-top: 10px; padding-bottom: 10px; }
+}
+@media (max-width: 760px) {
+  .ny-academy-app.cw-app .gr-main { padding: 22px 21px 20px; }
+  .ny-academy-app.cw-app .gr-topbar { height: 62px; padding: 0 17px; }
+  .ny-academy-app.cw-app .gr-sidebar { width: 270px; padding: 25px 23px 19px; }
+  .cw-dashboard-heading { align-items: flex-start; gap: 15px; }
+  .cw-dashboard-heading h1 { font-size: 23px; }
+  .cw-resume { min-height: 41px; font-size: 10px !important; padding: 10px 12px; gap: 9px; }
+  .cw-trade-context { gap: 15px; padding: 13px 15px; }
+  .cw-trade-amount { gap: 11px; }
+  .cw-trade-amount b { font-size: 18px; margin-left: 5px; }
+  .cw-section-heading > span { font-size: 9px; }
+  .cw-role-grid { gap: 9px; }
+  .cw-dashboard-bottom { gap: 21px; }
+  .cw-lesson { min-height: 78px; }
+}
+@media (max-width: 520px) {
+  .ny-academy-app.cw-app .gr-main { padding: 21px 17px 22px; }
+  .cw-dashboard-heading { display: block; margin-bottom: 17px; }
+  .cw-dashboard-heading h1 { margin: 5px 0 11px; font-size: 25px; }
+  .cw-resume { min-height: 39px; font-size: 11px !important; }
+  .cw-trade-context { flex-wrap: wrap; gap: 10px; padding: 13px 15px; margin-bottom: 20px; }
+  .cw-trade-name { width: 100%; gap: 12px; }
+  .cw-trade-name > span { display: flex; align-items: center; gap: 14px; }
+  .cw-trade-name small { margin: 0; font-size: 9px; }
+  .cw-trade-name strong { font-size: 11px; }
+  .cw-trade-amount { width: 100%; margin-left: 30px; justify-content: flex-start; gap: 12px; }
+  .cw-trade-amount b { font-size: 18px; }
+  .cw-role-section > .cw-section-heading { display: block; }
+  .cw-role-section > .cw-section-heading > span { display: block; margin-top: 3px; }
+  .cw-role-card { min-height: 147px; padding: 14px 13px 12px; }
+  .cw-role-card > strong { font-size: 14px; }
+  .cw-role-subtitle { font-size: 10px; line-height: 1.7; }
+  .cw-role-action { font-size: 9px; }
+  .cw-lesson-grid { gap: 7px; }
+  .cw-lesson { min-height: 79px; padding: 11px 10px; gap: 8px; }
+  .cw-lesson-icon { width: 20px; }
+  .cw-lesson-copy > strong { font-size: 12px; }
+  .cw-lesson-copy > span { font-size: 8px; }
+  .cw-lesson-state { display: none; }
+  .cw-learning-note { font-size: 9px; }
+  .cw-tools-panel .cw-tool { min-height: 61px; }
+}
+@media (max-width: 360px) {
+  .cw-role-card { padding-left: 11px; padding-right: 11px; }
+  .cw-trade-name > span { flex-wrap: wrap; gap: 5px 11px; }
+  .cw-trade-amount { margin-left: 0; }
+  .cw-lesson-icon { display: none; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .cw-app *, .cw-app *::before, .cw-app *::after { scroll-behavior: auto !important; transition: none !important; animation: none !important; }
+}
+/* Explicit control surfaces avoid browser-default beveled button borders. */
+.ny-academy-app.cw-app .gr-logo { border: 0; box-shadow: none; }
+.ny-academy-app.cw-app .gr-mini-missions button { border: 0; box-shadow: none; }
+.ny-academy-app.cw-app .gr-mini-missions button:not(:disabled):hover { background: #efede5; }
+.ny-academy-app.cw-app .gr-mini-missions button.active { background: #eee7dc; }
+.ny-academy-app.cw-app .gr-top-tools > button { border: 1px solid transparent; box-shadow: none; }
+.ny-academy-app.cw-app .gr-top-tools > button:hover { border-color: #d3d8ca; background: #eeebe3; }
+.ny-academy-app.cw-app .gr-mobile-menu, .ny-academy-app.cw-app .gr-mobile-scrim { border: 0; box-shadow: none; }
+.ny-academy-app.cw-app .gr-sidebar-bottom button { border: 0; border-top: 1px solid #cfd3c9; box-shadow: none; }
+.ny-academy-app.cw-app .gr-logo:focus-visible,
+.ny-academy-app.cw-app .gr-mini-missions button:focus-visible,
+.ny-academy-app.cw-app .gr-top-tools > button:focus-visible,
+.ny-academy-app.cw-app .gr-mobile-menu:focus-visible,
+.ny-academy-app.cw-app .gr-sidebar-bottom button:focus-visible { outline: 2px solid #8b543b; outline-offset: 3px; }
+
+/* Short desktop screens retain every menu and lesson; remove only repeated decoration. */
+@media (min-width: 761px) and (max-height: 820px) {
+  .ny-academy-app.cw-app .gr-sidebar { padding: 18px 22px 16px; }
+  .ny-academy-app.cw-app .gr-sidebar .ny-edition,
+  .ny-academy-app.cw-app .gr-sidebar > .gr-side-label:first-of-type,
+  .ny-academy-app.cw-app .gr-sidebar-bottom > p { display: none; }
+  .ny-academy-app.cw-app .gr-operative { min-height: 40px; margin-top: 18px; }
+  .ny-academy-app.cw-app .ny-profile-glyph { height: 38px; width: 34px; }
+  .ny-academy-app.cw-app .gr-xp-row { margin: 12px 0 7px; }
+  .ny-academy-app.cw-app .gr-sidebar nav { margin-top: 13px; }
+  .ny-academy-app.cw-app .gr-nav { min-height: 36px; height: 36px; padding: 7px 11px; margin: 1px 0; }
+  .ny-academy-app.cw-app .gr-side-line { margin-top: 14px; }
+  .ny-academy-app.cw-app .gr-side-line + .gr-side-label { margin-top: 14px; margin-bottom: 8px; }
+  .ny-academy-app.cw-app .gr-mini-missions { gap: 1px; }
+  .ny-academy-app.cw-app .gr-mini-missions button { min-height: 30px; height: 30px; padding: 5px 0; }
+  .ny-academy-app.cw-app .gr-mini-missions button > span:first-child { height: 20px; width: 21px; }
+  .ny-academy-app.cw-app .gr-sidebar-bottom { padding-top: 13px; }
+  .ny-academy-app.cw-app .gr-build { margin-top: 10px; }
+}

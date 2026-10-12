@@ -1,0 +1,112 @@
+/* One camera entrance, followed by the menu-driven workspace. */
+body:has(.city-entry) { overflow: hidden; }
+.city-entry { --city-scale: 1; --city-title-opacity: 1; --city-veil: 0; position: relative; isolation: isolate; height: 100dvh; width: 100%; min-height: 0; overflow: hidden; background: #ece6dc; color: #302d2a; outline: none; touch-action: pan-x pinch-zoom; }
+.city-entry-image { position: absolute; inset: 0; display: block; transform: scale(var(--city-scale)); transform-origin: 59% 57%; will-change: transform; }
+.city-entry-image img { display: block; width: 100%; height: 100%; object-fit: cover; object-position: 59% 53%; user-select: none; -webkit-user-drag: none; }
+.city-entry-shade { position: absolute; inset: 0; pointer-events: none; background: linear-gradient(180deg, rgba(245,239,227,.3) 0%, transparent 35%, rgba(17,27,28,.06) 63%, rgba(17,27,28,.49) 100%); }
+.city-entry-title { position: absolute; top: max(36px, 6vh); left: 26px; right: 26px; text-align: center; opacity: var(--city-title-opacity); pointer-events: none; }
+.city-entry-title > span { display: block; font: 9px/1.5 'Arial', sans-serif; letter-spacing: 5px; color: #4e463d; margin-bottom: 18px; }
+.city-entry-title h1 { margin: 0; font-family: 'Georgia', 'Times New Roman', serif; font-size: clamp(36px, 5.4vw, 88px); font-weight: 400; line-height: 1.1; letter-spacing: -.03em; color: #353330; text-shadow: 0 1px 16px rgba(247,241,229,.4); }
+.city-entry-title h1 em { font-style: normal; font-weight: 400; }
+.city-entry-nav { position: absolute; z-index: 3; top: 50%; left: clamp(24px, 4vw, 76px); transform: translateY(-50%); display: flex; flex-direction: column; gap: 2px; width: 204px; padding: 9px 8px; border: 1px solid rgba(242,236,222,.28); background: rgba(38,41,37,.5); backdrop-filter: blur(18px); -webkit-backdrop-filter: blur(18px); }
+.city-entry-nav button { border: 0; background: none; display: flex; align-items: center; gap: 12px; min-height: 48px; padding: 12px 10px; color: #fcf5e6; font: 12px/1.5 'Arial', 'Malgun Gothic', sans-serif; text-align: left; cursor: pointer; transition: background .18s; }
+.city-entry-nav button:hover { background: rgba(243,231,204,.14); }
+.city-nav-number { font: 8px/1 'Arial', sans-serif; letter-spacing: 1px; opacity: .7; }
+.city-entry-nav button > svg:first-of-type { display: none; }
+.city-entry-nav button > svg:last-of-type { margin-left: auto; opacity: .7; }
+.city-entry-nav button:focus-visible, .city-entry-bypass:focus-visible { outline: 2px solid #f3dfb4; outline-offset: 3px; }
+.city-entry-cue { position: absolute; z-index: 3; bottom: max(40px, calc(env(safe-area-inset-bottom) + 26px)); left: 24px; right: 24px; display: flex; flex-direction: column; align-items: center; gap: 17px; color: #fff6e8; text-shadow: 0 1px 10px rgba(0,0,0,.4); }
+.city-scroll-instruction { display: flex; align-items: center; gap: 12px; font: 11px/1.7 'Arial', 'Malgun Gothic', sans-serif; letter-spacing: .2px; }
+.city-entry-bypass { display: flex; align-items: center; gap: 18px; color: #fff6e8; padding: 6px 0; border: 0; border-bottom: 1px solid rgba(255,246,232,.6); background: none; font: 10px/1.4 'Arial', 'Malgun Gothic', sans-serif; cursor: pointer; }
+.city-entry-bypass:hover { color: #ffe0a6; }
+.city-touch-instruction { display: none; }
+.city-entry-progress { z-index: 3; position: absolute; bottom: 0; left: 0; right: 0; height: 2px; background: rgba(255,255,255,.16); }
+.city-entry-progress i { display: block; height: 100%; width: 100%; background: #ebd9b1; transform-origin: left center; }
+.city-entry-veil { position: absolute; inset: 0; pointer-events: none; background: #f5f3ed; opacity: var(--city-veil); }
+.city-visually-hidden { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; border: 0; }
+@media (max-width: 700px) {
+  .city-entry-title { top: max(36px, calc(env(safe-area-inset-top) + 28px)); left: 18px; right: 18px; }
+  .city-entry-title > span { font-size: 8px; letter-spacing: 3px; margin-bottom: 13px; }
+  .city-entry-title h1 { font-size: clamp(29px, 8vw, 48px); letter-spacing: -.03em; }
+  .city-entry-image { transform-origin: 59% 55%; }
+  .city-entry-nav { left: 20px; width: 172px; padding: 5px; top: 51%; }
+  .city-entry-nav button { min-height: 46px; font-size: 11px; gap: 10px; }
+  .city-entry-cue { bottom: max(35px, calc(env(safe-area-inset-bottom) + 24px)); gap: 11px; }
+  .city-scroll-instruction { display: none; }
+  .city-touch-instruction { display: block; font-size: 10px; }
+  .city-entry-bypass { font-size: 12px; padding: 10px 0; }
+}
+@media (max-height: 520px) and (min-width: 701px) {
+  .city-entry-title { top: 24px; }
+  .city-entry-title > span { margin-bottom: 7px; font-size: 7px; }
+  .city-entry-title h1 { font-size: 38px; }
+  .city-entry-nav { top: 57%; }
+  .city-entry-nav button { min-height: 37px; padding-top: 8px; padding-bottom: 8px; }
+  .city-entry-cue { bottom: 23px; gap: 7px; }
+}
+@media (max-height: 520px) and (max-width: 700px) {
+  .city-entry-title { top: 20px; }
+  .city-entry-title > span { margin-bottom: 7px; }
+  .city-entry-nav { top: 53%; }
+  .city-entry-nav button { min-height: 36px; padding-top: 8px; padding-bottom: 8px; }
+  .city-entry-cue { left: auto; right: 22px; bottom: 24px; align-items: flex-end; }
+  .city-touch-instruction { display: none; }
+}
+@media (prefers-reduced-motion: reduce) { .city-entry-image { transform: none; will-change: auto; } .city-entry-nav button { transition: none; } }
+
+/* The later camera journey is spatial: destination portals expand while nearby
+   water, architecture and glass pass the camera at separate speeds. */
+.city-flight { background: #d1c4ae; }
+.flight-stage { position: absolute; inset: 0; overflow: hidden; perspective: 1100px; isolation: isolate; contain: layout paint; }
+.flight-stage > .city-entry-image { z-index: 0; }
+.flight-scene { position: absolute; inset: 0; overflow: hidden; pointer-events: none; }
+.flight-scene picture { position: absolute; inset: 0; display: block; transform-origin: 50% 55%; }
+.flight-scene img { width: 100%; height: 100%; display: block; object-fit: cover; object-position: 50% 55%; user-select: none; -webkit-user-drag: none; }
+.flight-street { z-index: 1; }
+.flight-street picture { transform-origin: 56% 59%; }
+.flight-street img { object-position: 56% 55%; }
+.flight-lobby { z-index: 2; }
+.flight-office { z-index: 3; }
+.flight-passage { position: absolute; inset: 0; z-index: 4; pointer-events: none; overflow: hidden; }
+.flight-near { position: absolute; pointer-events: none; transform-origin: 50% 50%; }
+.flight-texture { width: 100%; height: 100%; background-image: url('/game/new-york/nyc-city-immersive.jpg?v=6'); background-repeat: no-repeat; }
+.flight-facadeLeft { width: 34vw; height: 102vh; left: -17vw; top: 11vh; clip-path: polygon(0 0,92% 11%,100% 94%,0 100%); mask-image: linear-gradient(90deg,#000 55%,transparent 98%); }
+.flight-facadeRight { width: 34vw; height: 104vh; right: -17vw; top: 9vh; clip-path: polygon(8% 11%,100% 0,100% 100%,0 94%); mask-image: linear-gradient(270deg,#000 55%,transparent 98%); }
+.flight-facadeLeft .flight-texture { background-size: 190vw 107vh; background-position: 50% 60%; transform: perspective(850px) rotateY(-17deg); }
+.flight-facadeRight .flight-texture { background-size: 190vw 107vh; background-position: 76% 60%; transform: perspective(850px) rotateY(17deg); }
+.flight-riverLeft { width: 51vw; height: 44vh; left: -12vw; bottom: -9vh; clip-path: polygon(0 0,100% 35%,100% 100%,0 100%); mask-image: linear-gradient(90deg,#000 55%,transparent 100%); }
+.flight-riverRight { width: 51vw; height: 44vh; right: -12vw; bottom: -9vh; clip-path: polygon(0 35%,100% 0,100% 100%,0 100%); mask-image: linear-gradient(270deg,#000 55%,transparent 100%); }
+.flight-riverLeft .flight-texture { background-size: 155vw 115vh; background-position: 15% 100%; transform: perspective(950px) rotateX(11deg); }
+.flight-riverRight .flight-texture { background-size: 155vw 115vh; background-position: 35% 100%; transform: perspective(950px) rotateX(11deg); }
+.flight-doorway { position: absolute; inset: 0; z-index: 5; overflow: hidden; pointer-events: none; }
+.flight-door-leaf { position: absolute; top: -8vh; bottom: -8vh; width: 20vw; background: linear-gradient(90deg,rgba(62,40,23,.42),rgba(242,227,190,.08) 21%,rgba(211,180,121,.06) 70%,rgba(48,33,23,.75) 98%); border-right: 7px solid rgba(96,62,29,.8); box-shadow: 3px 0 8px rgba(37,28,16,.12); transform-origin: 50% 55%; }
+.flight-door-left { left: 11vw; }
+.flight-door-right { right: 11vw; border-right: 0; border-left: 7px solid rgba(96,62,29,.8); background: linear-gradient(270deg,rgba(62,40,23,.42),rgba(242,227,190,.08) 21%,rgba(211,180,121,.06) 70%,rgba(48,33,23,.75) 98%); box-shadow: -3px 0 8px rgba(37,28,16,.12); }
+.flight-atmosphere { position: absolute; inset: 0; z-index: 6; pointer-events: none; background: radial-gradient(ellipse at 53% 54%,transparent 48%,rgba(23,28,27,.18) 100%); }
+.city-flight .city-entry-title, .city-flight .city-entry-shade, .city-flight .city-entry-veil { z-index: 1; }
+.city-flight .city-entry-shade { background: linear-gradient(180deg,rgba(245,239,227,.3),transparent 35%,transparent 67%,rgba(17,27,28,.55)); }
+.city-flight .city-entry-veil { z-index: 2; transition: opacity 220ms ease; }
+.flight-chapter { font: 8px/1.4 Arial,sans-serif; letter-spacing: 3px; color: #f3e8d2; }
+.city-flight .city-entry-cue { gap: 12px; }
+.city-flight .city-entry-nav { backdrop-filter: none; -webkit-backdrop-filter: none; background: rgba(38,41,37,.69); }
+@media (max-width: 700px) {
+  /* A portrait cover already crops into the architecture. Keep the additional
+     approach restrained so the doorway retains useful image detail. */
+  .flight-scene { --flight-zoom: .36; }
+  .flight-texture { background-image: url('/game/new-york/nyc-city-immersive-mobile.jpg?v=6'); }
+  .flight-facadeLeft, .flight-facadeRight { width: 44vw; }
+  .flight-facadeLeft { left: -27vw; }
+  .flight-facadeRight { right: -27vw; }
+  .flight-facadeLeft .flight-texture, .flight-facadeRight .flight-texture { background-size: auto 115vh; }
+  .flight-riverLeft .flight-texture, .flight-riverRight .flight-texture { background-size: auto 115vh; }
+  .flight-door-leaf { width: 15vw; }
+  .flight-door-left { left: 3vw; }
+  .flight-door-right { right: 3vw; }
+  .city-flight .city-entry-cue { gap: 10px; }
+  .flight-chapter { font-size: 7px; letter-spacing: 2px; }
+}
+@media (max-height: 520px) { .city-flight .city-entry-cue { gap: 5px; } }
+@media (prefers-reduced-motion: reduce) {
+  .flight-scene, .flight-passage, .flight-doorway { display: none; }
+  .flight-stage > .city-entry-image { transform: none !important; }
+}
