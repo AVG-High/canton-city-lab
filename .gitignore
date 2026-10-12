@@ -5,3 +5,12 @@ work/
 .sites-runtime/
 .sites-checkout-*/
 *.log
+
+# Cross-machine workspace and local credentials
+.DS_Store
+.cache/
+.aws/
+*.pem
+*.key
+*.p12
+*.pfx

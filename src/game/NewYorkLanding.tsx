@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState, type CSSProperties } from 'react';
-import { ArrowDown, ArrowUpRight, BookOpen, LayoutDashboard, Library, Mouse, Users } from 'lucide-react';
-import { CITY_TRAVEL, advanceCityProgress, cityFlightFrame, normalizeCityWheel, smoothCityProgress, type CitySceneFrame } from './cityEntryModel';
+import { ArrowLeftRight, ArrowUpRight, BookOpen, LayoutDashboard, Library, Mouse, Users } from 'lucide-react';
+import { CITY_TRAVEL, advanceCityProgress, beginCityDrag, cityFlightFrame, normalizeCityWheel, smoothCityProgress, updateCityDrag, type CityDragState, type CitySceneFrame } from './cityEntryModel';
 import { beginFlightDecode, flightAssetLimit, flightDestination, officeEntryDelay, selectFlightImage, settleFlightImage, type FlightAsset, type FlightAssets, type FlightImageRequest } from './cityFlightReadiness';
 import './new-york-landing.css';
 
@@ -45,6 +45,7 @@ export default function NewYorkLanding({ onExplore, onNavigate }: Props) {
   enter.current = onExplore;
   const [progress, setProgress] = useState(0);
   const [exiting, setExiting] = useState(false);
+  const [dragging, setDragging] = useState(false);
   const [reducedMotion, setReducedMotion] = useState(false);
   const [imageFailed, setImageFailed] = useState(false);
   const [loadJourney, setLoadJourney] = useState(false);
@@ -111,9 +112,9 @@ export default function NewYorkLanding({ onExplore, onNavigate }: Props) {
     let animation = 0;
     let entryTimer: ReturnType<typeof setTimeout> | undefined;
     let exited = false;
+    let focused = true;
     let officeVisibleSince: number | null = null;
-    let touch: { x: number; y: number } | null = null;
-    let touchOrigin = 0;
+    let drag: { id: number; origin: number; sample: CityDragState } | null = null;
     function finish() { if (!exited) { exited = true; enter.current(); } }
     function cancelEntry() {
       if (entryTimer) { clearTimeout(entryTimer); entryTimer = undefined; }
@@ -123,7 +124,7 @@ export default function NewYorkLanding({ onExplore, onNavigate }: Props) {
     function refreshAvailability() { if (syncSelectedSources()) cancelEntry(); }
     function entryDelay() {
       refreshAvailability();
-      return officeEntryDelay({ progress: current, target, officeReady: flightAssetLimit(ready.current) === 1, touchActive: !!touch, visible: !document.hidden, officeVisibleSince, lastInputAt, now: performance.now() });
+      return officeEntryDelay({ progress: current, target, officeReady: flightAssetLimit(ready.current) === 1, touchActive: !!drag, visible: !document.hidden && focused, officeVisibleSince, lastInputAt, now: performance.now() });
     }
     function scheduleEntry() {
       if (entryTimer || exited) return;
@@ -177,7 +178,7 @@ export default function NewYorkLanding({ onExplore, onNavigate }: Props) {
     const isControl = (event: Event) => event.target instanceof Element && !!event.target.closest('button, a, input, select, textarea, [data-city-navigation]');
     function wheel(event: WheelEvent) {
       const delta = normalizeCityWheel(event);
-      if (!delta || isControl(event) || media.matches) return;
+      if (!delta || drag || isControl(event) || media.matches) return;
       event.preventDefault();
       move(delta);
     }
@@ -188,38 +189,60 @@ export default function NewYorkLanding({ onExplore, onNavigate }: Props) {
       else if (event.key === 'PageUp' || event.key === 'ArrowUp') { event.preventDefault(); move(event.key === 'ArrowUp' ? -160 : -360); }
       else if (event.key === 'Home') { event.preventDefault(); move(-CITY_TRAVEL); }
     }
-    function touchStart(event: TouchEvent) {
-      if (event.touches.length !== 1) { cancelTouch(); return; }
-      touchOrigin = target;
-      touch = !isControl(event) ? { x: event.touches[0].clientX, y: event.touches[0].clientY } : null;
-    }
-    function touchMove(event: TouchEvent) {
-      if (event.touches.length !== 1) { cancelTouch(); return; }
-      if (!touch) return;
-      const next = event.touches[0], dx = touch.x - next.clientX, dy = touch.y - next.clientY;
-      if (Math.abs(dy) > Math.abs(dx)) { event.preventDefault(); move(Math.max(-180, Math.min(180, dy * 3))); }
-      touch = { x: next.clientX, y: next.clientY };
-    }
-    function touchEnd() { touch = null; scheduleEntry(); }
-    function cancelTouch() {
-      if (touch) { const origin = touchOrigin; touch = null; move((origin - target) * CITY_TRAVEL); }
+    function endDrag(cancelled = false) {
+      if (!drag) return;
+      const previous = drag;
+      drag = null;
+      setDragging(false);
+      if (element!.hasPointerCapture(previous.id)) element!.releasePointerCapture(previous.id);
+      if (cancelled) move((previous.origin - target) * CITY_TRAVEL);
+      lastInputAt = performance.now();
+      kick();
       scheduleEntry();
     }
+    function pointerDown(event: PointerEvent) {
+      // A second finger belongs to native pinch zoom, not camera movement.
+      if (!event.isPrimary) { endDrag(true); return; }
+      if (event.button !== 0 || isControl(event) || media.matches || exited || event.ctrlKey || event.metaKey || event.altKey) return;
+      if (drag) return;
+      drag = { id: event.pointerId, origin: target, sample: beginCityDrag(event.clientX, event.clientY) };
+      cancelEntry();
+      element!.setPointerCapture(event.pointerId);
+    }
+    function pointerMove(event: PointerEvent) {
+      if (!drag || event.pointerId !== drag.id) return;
+      const next = updateCityDrag(drag.sample, event.clientX, event.clientY, element!.clientWidth, element!.clientHeight);
+      if (next.state.axis) {
+        event.preventDefault();
+        if (!drag.sample.axis) setDragging(true);
+      }
+      drag.sample = next.state;
+      move(next.delta);
+    }
+    function pointerUp(event: PointerEvent) { if (event.pointerId === drag?.id) endDrag(); }
+    function pointerCancel(event: PointerEvent) { if (event.pointerId === drag?.id) endDrag(true); }
+    function lostCapture(event: PointerEvent) { if (event.pointerId === drag?.id) endDrag(); }
+    function blur() { focused = false; endDrag(); cancelEntry(); }
+    function focus() { focused = true; kick(); }
     function updatePreference() {
       setReducedMotion(media.matches);
+      if (media.matches) endDrag();
       if (media.matches) { target = current = 0; officeVisibleSince = null; setProgress(0); setExiting(false); if (entryTimer) { clearTimeout(entryTimer); entryTimer = undefined; } }
       kick();
     }
-    function visibility() { if (document.hidden) officeVisibleSince = null; else kick(); }
+    function visibility() { if (document.hidden) { endDrag(); cancelEntry(); } else kick(); }
     function pictureChanged() { if (syncSelectedSources()) { cancelEntry(); kick(); } }
     media.addEventListener('change', updatePreference);
     pictureMedia.addEventListener('change', pictureChanged);
     window.addEventListener('resize', pictureChanged);
     element.addEventListener('wheel', wheel, { passive: false });
-    element.addEventListener('touchstart', touchStart, { passive: true });
-    element.addEventListener('touchmove', touchMove, { passive: false });
-    element.addEventListener('touchend', touchEnd);
-    element.addEventListener('touchcancel', cancelTouch);
+    element.addEventListener('pointerdown', pointerDown);
+    element.addEventListener('pointermove', pointerMove, { passive: false });
+    element.addEventListener('pointerup', pointerUp);
+    element.addEventListener('pointercancel', pointerCancel);
+    element.addEventListener('lostpointercapture', lostCapture);
+    window.addEventListener('blur', blur);
+    window.addEventListener('focus', focus);
     window.addEventListener('keydown', key);
     document.addEventListener('visibilitychange', visibility);
     return () => {
@@ -230,10 +253,13 @@ export default function NewYorkLanding({ onExplore, onNavigate }: Props) {
       pictureMedia.removeEventListener('change', pictureChanged);
       window.removeEventListener('resize', pictureChanged);
       element.removeEventListener('wheel', wheel);
-      element.removeEventListener('touchstart', touchStart);
-      element.removeEventListener('touchmove', touchMove);
-      element.removeEventListener('touchend', touchEnd);
-      element.removeEventListener('touchcancel', cancelTouch);
+      element.removeEventListener('pointerdown', pointerDown);
+      element.removeEventListener('pointermove', pointerMove);
+      element.removeEventListener('pointerup', pointerUp);
+      element.removeEventListener('pointercancel', pointerCancel);
+      element.removeEventListener('lostpointercapture', lostCapture);
+      window.removeEventListener('blur', blur);
+      window.removeEventListener('focus', focus);
       window.removeEventListener('keydown', key);
       document.removeEventListener('visibilitychange', visibility);
     };
@@ -244,9 +270,9 @@ export default function NewYorkLanding({ onExplore, onNavigate }: Props) {
   const failed = Object.values(assets).includes('failed');
   const chapter = progress < .39 ? 'MANHATTAN' : progress < .64 ? 'WATERFRONT' : progress < .80 ? 'THE THRESHOLD' : 'CITY LAB';
   const blockedCue = blocked && (failed || progress > .01);
-  const cue = reducedMotion ? '도시로 입장해 시작하세요' : blockedCue ? failed ? '장면을 불러오지 못했습니다 · 바로 입장할 수 있습니다' : '다음 공간을 준비하고 있습니다' : progress < .39 ? '스크롤하면, 도시가 가까워집니다' : progress < .64 ? '강변을 지나, 건물 앞으로' : progress < .80 ? '유리문 너머로, 계속 앞으로' : '시티랩 사무실로 들어갑니다';
+  const cue = reducedMotion ? '도시로 입장해 시작하세요' : blockedCue ? failed ? '장면을 불러오지 못했습니다 · 바로 입장할 수 있습니다' : '다음 공간을 준비하고 있습니다' : progress < .39 ? '오른쪽으로 드래그하면, 도시가 가까워집니다' : progress < .64 ? '강변을 지나, 건물 앞으로' : progress < .80 ? '유리문 너머로, 계속 앞으로' : '시티랩 사무실로 들어갑니다';
   const style = { '--city-title-opacity': view.titleOpacity, '--city-veil': exiting ? 1 : 0 } as CSSProperties;
-  return <div ref={root} className="city-entry city-flight" id="ny-content" tabIndex={-1} style={style} data-progress={progress.toFixed(3)} data-chapter={chapter}>
+  return <div ref={root} className={'city-entry city-flight' + (dragging ? ' city-entry-dragging' : '')} id="ny-content" tabIndex={-1} style={style} data-progress={progress.toFixed(3)} data-chapter={chapter}>
     <div className="flight-stage" aria-hidden="true">
       <picture className="city-entry-image" style={plane(view.city)}>
         {!imageFailed && <source media="(max-width: 700px)" srcSet="/game/new-york/nyc-city-immersive-mobile.jpg?v=6"/>}
@@ -274,12 +300,13 @@ export default function NewYorkLanding({ onExplore, onNavigate }: Props) {
     </nav>
     <div className="city-entry-cue">
       <span className="flight-chapter">{chapter}</span>
-      <span className="city-scroll-instruction"><Mouse size={17} strokeWidth={1.5}/><span>{cue}</span><ArrowDown size={14}/></span>
+      <span className="city-scroll-instruction"><Mouse size={17} strokeWidth={1.5}/><span>{cue}</span><ArrowLeftRight size={16}/></span>
+      {!reducedMotion && <span className="city-entry-input-hint">왼쪽으로 되돌리기 · 두 손가락 스크롤로도 이동</span>}
       <button onClick={onExplore} className="city-entry-bypass">바로 입장<ArrowUpRight size={15}/></button>
-      <span className="city-touch-instruction">{reducedMotion ? '바로 입장 또는 메뉴를 선택하세요' : blockedCue ? cue : '위로 밀어 이동 · 메뉴로 바로 시작'}</span>
+      <span className="city-touch-instruction">{reducedMotion ? '바로 입장 또는 메뉴를 선택하세요' : blockedCue ? cue : '오른쪽 또는 위로 밀어 입장 · 반대로 되돌리기'}</span>
     </div>
     <div className="city-entry-progress" aria-hidden="true"><i style={{transform:`scaleX(${progress})`}}/></div>
     <div className="city-entry-veil" aria-hidden="true"/>
-    <p className="city-visually-hidden">맨해튼 전경에서 강변 거리, 유리문과 로비를 지나 사무실로 들어가는 연구·교육용 연출입니다. {reducedMotion ? '움직임 감소 설정으로 카메라 이동을 생략합니다. ' : '휠 또는 Page Down으로 전진하고, 반대로 굴리거나 Page Up으로 되돌아갑니다. '}Enter와 바로 입장 버튼, 왼쪽 메뉴로 연출을 건너뛸 수 있습니다.</p>
+    <p className="city-visually-hidden">맨해튼 전경에서 강변 거리, 유리문과 로비를 지나 사무실로 들어가는 연구·교육용 연출입니다. {reducedMotion ? '움직임 감소 설정으로 카메라 이동을 생략합니다. ' : '화면을 누른 채 오른쪽으로 드래그하거나 위로 밀면 전진하고, 반대로 움직이면 되돌아갑니다. 마우스 휠, 트랙패드 두 손가락 스크롤, Page Down과 Page Up으로도 이동합니다. 두 손가락을 벌리거나 모으는 동작은 브라우저 화면 확대를 유지합니다. '}Enter와 바로 입장 버튼, 왼쪽 메뉴로 연출을 건너뛸 수 있습니다.</p>
   </div>;
 }

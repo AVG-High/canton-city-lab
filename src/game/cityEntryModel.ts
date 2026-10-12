@@ -11,9 +11,30 @@ const exposure = (progress: number, enterStart: number, enterEnd: number, exitSt
   smoothstep(enterStart, enterEnd, progress) * (1 - smoothstep(exitStart, exitEnd, progress));
 
 export function normalizeCityWheel(event: { deltaY: number; deltaX: number; deltaMode: number; ctrlKey: boolean; metaKey: boolean }): number {
-  if (event.ctrlKey || event.metaKey || !Number.isFinite(event.deltaY) || !Number.isFinite(event.deltaX) || Math.abs(event.deltaX) > Math.abs(event.deltaY)) return 0;
+  // Trackpad scrolling can arrive on either axis. Modified wheel events belong
+  // to browser/pinch zoom and must never move the architectural camera.
+  if (event.ctrlKey || event.metaKey || !Number.isFinite(event.deltaY) || !Number.isFinite(event.deltaX)) return 0;
   const factor = event.deltaMode === 1 ? 16 : event.deltaMode === 2 ? 720 : 1;
-  return clamp(event.deltaY * factor, -180, 180);
+  const delta = Math.abs(event.deltaX) > Math.abs(event.deltaY) ? event.deltaX : event.deltaY;
+  return clamp(delta * factor, -180, 180);
+}
+
+export type CityDragState = { startX: number; startY: number; x: number; y: number; axis: 'horizontal' | 'vertical' | null };
+export function beginCityDrag(x: number, y: number): CityDragState {
+  return { startX: x, startY: y, x, y, axis: null };
+}
+/** Rightward dragging or upward swiping advances; reverse input retraces the camera.
+ * Lock the dominant axis after a small threshold so diagonal noise cannot jump
+ * between directions. Two viewport lengths cover the complete journey.
+ */
+export function updateCityDrag(state: CityDragState, x: number, y: number, width: number, height: number): { state: CityDragState; delta: number } {
+  if (![state.x, state.y, x, y, width, height].every(Number.isFinite) || width <= 0 || height <= 0) return { state, delta: 0 };
+  const dx = x - state.startX, dy = y - state.startY;
+  if (!state.axis && Math.max(Math.abs(dx), Math.abs(dy)) < 6) return { state, delta: 0 };
+  const axis = state.axis ?? (Math.abs(dx) >= Math.abs(dy) ? 'horizontal' : 'vertical');
+  const distance = axis === 'horizontal' ? x - state.x : state.y - y;
+  const size = axis === 'horizontal' ? width : height;
+  return { state: { ...state, x, y, axis }, delta: clamp(distance * CITY_TRAVEL / (size * 2), -CITY_TRAVEL / 2, CITY_TRAVEL / 2) };
 }
 export function advanceCityProgress(current: number, delta: number): number {
   return Number.isFinite(delta) ? clamp(finiteProgress(current) + delta / CITY_TRAVEL) : finiteProgress(current);

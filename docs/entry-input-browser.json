@@ -1,0 +1,52 @@
+{
+  "url": "http://127.0.0.1:4327/",
+  "browser": "installed Chrome / Chromium",
+  "nativeMacSafari": "NOT_TESTED",
+  "time": "2026-10-10T02:53:27.753Z",
+  "checks": [
+    {
+      "name": "Click-sized jitter does not move or navigate",
+      "status": "PASS"
+    },
+    {
+      "name": "Right drag approaches Manhattan and left drag retraces it",
+      "status": "PASS",
+      "forward": 0.222,
+      "restored": 0.003
+    },
+    {
+      "name": "Both wheel axes move reversibly; modified wheel remains browser zoom",
+      "status": "PASS"
+    },
+    {
+      "name": "Menus keep normal clicks; scene drags do not activate crossed menu buttons",
+      "status": "PASS"
+    },
+    {
+      "name": "Street, lobby and office complete by dragging; office waits for release before workspace entry",
+      "status": "PASS"
+    },
+    {
+      "name": "Mobile single-finger right/left and up/down gestures are reversible",
+      "status": "PASS",
+      "horizontal": 0.189,
+      "viewport": "390x844"
+    },
+    {
+      "name": "A second finger cancels camera dragging instead of treating pinch as forward movement",
+      "status": "PASS"
+    },
+    {
+      "name": "Reduced motion keeps a static entrance with working direct entry",
+      "status": "PASS"
+    },
+    {
+      "name": "Fast dragging pauses before undecoded artwork and does not queue an automatic jump",
+      "status": "PASS",
+      "held": 0.385,
+      "resumed": 0.422
+    }
+  ],
+  "errors": [],
+  "status": "PASS"
+}

@@ -1,6 +1,7 @@
 /* One camera entrance, followed by the menu-driven workspace. */
 body:has(.city-entry) { overflow: hidden; }
-.city-entry { --city-scale: 1; --city-title-opacity: 1; --city-veil: 0; position: relative; isolation: isolate; height: 100dvh; width: 100%; min-height: 0; overflow: hidden; background: #ece6dc; color: #302d2a; outline: none; touch-action: pan-x pinch-zoom; }
+.city-entry { --city-scale: 1; --city-title-opacity: 1; --city-veil: 0; position: relative; isolation: isolate; height: 100dvh; width: 100%; min-height: 0; overflow: hidden; background: #ece6dc; color: #302d2a; outline: none; touch-action: pinch-zoom; user-select: none; -webkit-user-select: none; }
+@media (pointer: fine) { .city-entry { cursor: grab; } .city-entry-dragging, .city-entry-dragging * { cursor: grabbing !important; } }
 .city-entry-image { position: absolute; inset: 0; display: block; transform: scale(var(--city-scale)); transform-origin: 59% 57%; will-change: transform; }
 .city-entry-image img { display: block; width: 100%; height: 100%; object-fit: cover; object-position: 59% 53%; user-select: none; -webkit-user-drag: none; }
 .city-entry-shade { position: absolute; inset: 0; pointer-events: none; background: linear-gradient(180deg, rgba(245,239,227,.3) 0%, transparent 35%, rgba(17,27,28,.06) 63%, rgba(17,27,28,.49) 100%); }
@@ -17,6 +18,7 @@ body:has(.city-entry) { overflow: hidden; }
 .city-entry-nav button:focus-visible, .city-entry-bypass:focus-visible { outline: 2px solid #f3dfb4; outline-offset: 3px; }
 .city-entry-cue { position: absolute; z-index: 3; bottom: max(40px, calc(env(safe-area-inset-bottom) + 26px)); left: 24px; right: 24px; display: flex; flex-direction: column; align-items: center; gap: 17px; color: #fff6e8; text-shadow: 0 1px 10px rgba(0,0,0,.4); }
 .city-scroll-instruction { display: flex; align-items: center; gap: 12px; font: 11px/1.7 'Arial', 'Malgun Gothic', sans-serif; letter-spacing: .2px; }
+.city-entry-input-hint { margin-top: -9px; font: 10px/1.6 'Arial', 'Malgun Gothic', sans-serif; color: #fff2da; }
 .city-entry-bypass { display: flex; align-items: center; gap: 18px; color: #fff6e8; padding: 6px 0; border: 0; border-bottom: 1px solid rgba(255,246,232,.6); background: none; font: 10px/1.4 'Arial', 'Malgun Gothic', sans-serif; cursor: pointer; }
 .city-entry-bypass:hover { color: #ffe0a6; }
 .city-touch-instruction { display: none; }
@@ -33,6 +35,7 @@ body:has(.city-entry) { overflow: hidden; }
   .city-entry-nav button { min-height: 46px; font-size: 11px; gap: 10px; }
   .city-entry-cue { bottom: max(35px, calc(env(safe-area-inset-bottom) + 24px)); gap: 11px; }
   .city-scroll-instruction { display: none; }
+  .city-entry-input-hint { display: none; }
   .city-touch-instruction { display: block; font-size: 10px; }
   .city-entry-bypass { font-size: 12px; padding: 10px 0; }
 }
@@ -52,7 +55,7 @@ body:has(.city-entry) { overflow: hidden; }
   .city-entry-cue { left: auto; right: 22px; bottom: 24px; align-items: flex-end; }
   .city-touch-instruction { display: none; }
 }
-@media (prefers-reduced-motion: reduce) { .city-entry-image { transform: none; will-change: auto; } .city-entry-nav button { transition: none; } }
+@media (prefers-reduced-motion: reduce) { .city-entry { cursor: auto; } .city-entry-image { transform: none; will-change: auto; } .city-entry-nav button { transition: none; } }
 
 /* The later camera journey is spatial: destination portals expand while nearby
    water, architecture and glass pass the camera at separate speeds. */

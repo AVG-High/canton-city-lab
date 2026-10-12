@@ -1,0 +1,318 @@
+{
+  "created_on": "2026-10-12",
+  "purpose": "Private personal GitHub source handoff",
+  "owner": "AVG-High",
+  "repository": "canton-city-lab",
+  "site_version": 14,
+  "source_commit": "86212ea7931a746ca1f9bfb6ca456c54db4f02c5",
+  "rollback_source_commit": "aa5bec7cafd00ea3725c22c32106d1c014fc01b4",
+  "files": [
+    {
+      "path": ".gitignore",
+      "bytes": 73,
+      "sha256": "79ab4f26281d6498303d254268db0039a7db0d6d3dcd3fc2214e7e55eb5e1dce"
+    },
+    {
+      "path": ".openai/hosting.json",
+      "bytes": 106,
+      "sha256": "992636a93beab10e48e9da3507ee67fc2bc9f50fec06ed6dfb9373147e9f539a"
+    },
+    {
+      "path": "ASSETS.md",
+      "bytes": 3822,
+      "sha256": "c79f3f14ba5a226d5283c38911dfb5946cb7588c01162ca9306ec5ddba048a27"
+    },
+    {
+      "path": "README.md",
+      "bytes": 3856,
+      "sha256": "5d6c3f39631602c3c456d07d453e5c105e171984a91d78f0fd0f138554fc563a"
+    },
+    {
+      "path": "docs/ENTRY_INPUT.md",
+      "bytes": 2842,
+      "sha256": "c7db7a24bc74d46bdf29f878ceef4f3aab17b0182e19aa81fef409ff19bea20f"
+    },
+    {
+      "path": "docs/NEW_YORK_FLIGHT_ART.md",
+      "bytes": 10064,
+      "sha256": "fc0558a8c4c56f26209448ab3977c1f3ea96fdf8cd02478e128600b7bbc0c99c"
+    },
+    {
+      "path": "docs/NEW_YORK_FLIGHT_VALIDATION.md",
+      "bytes": 3946,
+      "sha256": "bf30b62b807b3eaa6237a6bb9c022dfe715d358745b32b95cd440c3c06e801b2"
+    },
+    {
+      "path": "docs/NEW_YORK_HQ_ART.md",
+      "bytes": 3702,
+      "sha256": "fb5fa3c0c9cd1ebbb0591c75c4a746cab9e81b50965e55bb4c116be5d68486cf"
+    },
+    {
+      "path": "docs/NEW_YORK_INTERIOR.md",
+      "bytes": 2994,
+      "sha256": "dd5351168fcee89461a08403493f630e7e30797b05f73c48fbc201f4870bf8ee"
+    },
+    {
+      "path": "docs/art/hq-v6/encode.cjs",
+      "bytes": 3360,
+      "sha256": "01fedf4de7128ac77aff8c3c054c178d1d319b1ef9edab165679c1f5e52c6bd6"
+    },
+    {
+      "path": "docs/art/hq-v6/manifest.json",
+      "bytes": 3743,
+      "sha256": "4918a2e85e21ba2ee72b728357f4c70dc4437e3ecc605ee9380c10a56b864e8e"
+    },
+    {
+      "path": "docs/art/hq-v6/nyc-waterfront-street-remaster.json",
+      "bytes": 3304,
+      "sha256": "2cdca590bf73b8635e674886095af343ad703c880566452f45ba37c0079ee5eb"
+    },
+    {
+      "path": "docs/art/hq-v6/prompts.json",
+      "bytes": 5284,
+      "sha256": "3bd3835ddeb063855b1735839467612cf96d697afabd484e7940fe7dd01402fa"
+    },
+    {
+      "path": "docs/entry-input-browser.json",
+      "bytes": 1480,
+      "sha256": "230f4e0b178bede90847ee97b961a2b22904e06b4d379cc92a1ca08c9339225a"
+    },
+    {
+      "path": "index.html",
+      "bytes": 1079,
+      "sha256": "0a71427dffc13d744959c2efdc56d6453476985992dbbb6c84fc419bbd8c1f78"
+    },
+    {
+      "path": "package-lock.json",
+      "bytes": 244460,
+      "sha256": "52e498a72815d31af05cd45176f3090e8145d06696869827a84ee72f390482dd"
+    },
+    {
+      "path": "package.json",
+      "bytes": 558,
+      "sha256": "52d67e0eff411f1493ab5773644e696526f48fec59cedc4092541f9b8a12fcfc"
+    },
+    {
+      "path": "public/favicon.svg",
+      "bytes": 337,
+      "sha256": "00a5c0b6d1e212902805ad1a54c8f7e3891e9be8ba611c0c57b9c5f5cc6ff448"
+    },
+    {
+      "path": "public/game/audio/new-york-skyline-203813.mp3",
+      "bytes": 5534615,
+      "sha256": "4455da86d781a4e885309c82569c0ac79d7bf4bdb1226e7272fbae63af0ba4c8"
+    },
+    {
+      "path": "public/game/new-york/city-entry-preview.jpg",
+      "bytes": 249984,
+      "sha256": "802f62872911ed633ac323ebe723e44439d1d71c77d82fc037d190eefe8b41d3"
+    },
+    {
+      "path": "public/game/new-york/city-flight-office-preview.jpg",
+      "bytes": 164058,
+      "sha256": "38f6b0e4f5f12a8e429d923404859ad7eed4947f7bab81de817e594afb1061be"
+    },
+    {
+      "path": "public/game/new-york/city-interior-preview.jpg",
+      "bytes": 86592,
+      "sha256": "f88f0a640714b0dc46dd9ca434c0838eb0d2429281041c4325570ee87bcc7cdd"
+    },
+    {
+      "path": "public/game/new-york/nyc-building-lobby-mobile.jpg",
+      "bytes": 721856,
+      "sha256": "12ae633f86a65e0836cc76944bee01002058c62dccca3778369e14339da71526"
+    },
+    {
+      "path": "public/game/new-york/nyc-building-lobby.jpg",
+      "bytes": 2536149,
+      "sha256": "6a51fbcae3f6f585809cc814a7a1e49b305e48089d83f9be72e35e8db7c5ac71"
+    },
+    {
+      "path": "public/game/new-york/nyc-city-immersive-mobile.jpg",
+      "bytes": 825478,
+      "sha256": "652428f0a5ffd256d053381e092eb7b67714d0a3b66c24d862ef959b973c1520"
+    },
+    {
+      "path": "public/game/new-york/nyc-city-immersive.jpg",
+      "bytes": 2831059,
+      "sha256": "f86761a402cdc82d1df0d6cf177a3d0ba938a5b79240a606c2c4fbf066e18359"
+    },
+    {
+      "path": "public/game/new-york/nyc-hero.jpg",
+      "bytes": 1039768,
+      "sha256": "3e3b844433892c2266ccc679e1a63e5d8681aa46d56851bb037ac7dfd5f7d6d9"
+    },
+    {
+      "path": "public/game/new-york/nyc-office-arrival-mobile.jpg",
+      "bytes": 705317,
+      "sha256": "42876eb97cf0588d4674cc2d4cd3724e19948a0d53a8150c91199f8ae9c8ba15"
+    },
+    {
+      "path": "public/game/new-york/nyc-office-arrival.jpg",
+      "bytes": 2485204,
+      "sha256": "bd7d8c48cb53412ad9e6825769c073b14b155ab663a38b82cb271a6f1082b4f8"
+    },
+    {
+      "path": "public/game/new-york/nyc-waterfront-street-mobile.jpg",
+      "bytes": 822147,
+      "sha256": "1d5a1d0053e1a16c89e08db4d6b14f5c79b90e489b719518bd51295af2370453"
+    },
+    {
+      "path": "public/game/new-york/nyc-waterfront-street.jpg",
+      "bytes": 2838898,
+      "sha256": "5e0c7922b8f033a375ca4e5250ed311e63df44d85dae7d021cd81fb9b11ea525"
+    },
+    {
+      "path": "src/game/CityBackgroundMusic.tsx",
+      "bytes": 9817,
+      "sha256": "932b36dcda8e110aaceaa88386a088e80c4b8b63b20c55293241c9e2b9ce8916"
+    },
+    {
+      "path": "src/game/GameApp.tsx",
+      "bytes": 31238,
+      "sha256": "0e54e0c34fa2f34174070d560c9975ee9458d4404cee935c96de547dc483a7ca"
+    },
+    {
+      "path": "src/game/MissionWorkbench.tsx",
+      "bytes": 12565,
+      "sha256": "03de1fdb54bc191d880b69e5fcb96ccd182041ade0bba4a98530894eb7f93d89"
+    },
+    {
+      "path": "src/game/NewYorkLanding.tsx",
+      "bytes": 19495,
+      "sha256": "acaada3c5b24253f76e3d87a3fd5ab15eb5937ade553c5666b59a5e81cd0d858"
+    },
+    {
+      "path": "src/game/WebLabIntro.tsx",
+      "bytes": 6004,
+      "sha256": "9227c6409b52ec0df49abdebce965ca507c01a08c80a0c3ba8ea64b5fe866c04"
+    },
+    {
+      "path": "src/game/city-background-music.css",
+      "bytes": 4609,
+      "sha256": "f8dd18f5d5804e5fd7a57ea0822c5c6cb0ae4aadb5c7eb6ae5014b3ccbe1a28e"
+    },
+    {
+      "path": "src/game/city-interior.css",
+      "bytes": 20094,
+      "sha256": "f30d47ab1748429e2a25e48c17efd39386c882b9d5db827595e9941928180236"
+    },
+    {
+      "path": "src/game/city-workspace.css",
+      "bytes": 13730,
+      "sha256": "43320a4199b383206e88a5383714d993fdd8414829c3adcca05bc50b1ec94345"
+    },
+    {
+      "path": "src/game/cityEntryModel.ts",
+      "bytes": 6569,
+      "sha256": "f2c91511af539075c41863d74bea51aa0df0f6a54bdd834239f60af8fefc232a"
+    },
+    {
+      "path": "src/game/cityFlightReadiness.ts",
+      "bytes": 2546,
+      "sha256": "caa0690f99c4668d07894fb79a471d5f4f3f9e3e33f8143f4f750d5165dfa432"
+    },
+    {
+      "path": "src/game/curriculum.ts",
+      "bytes": 15630,
+      "sha256": "c90bc8ee6ca859c768adefe3eae5636261a10b385ca249fa1a19db9b6933c7f4"
+    },
+    {
+      "path": "src/game/game.css",
+      "bytes": 42289,
+      "sha256": "75f2ec4b464240834746fa534bc50c013d9c16c0e85a2b9e327f65a00e1491c7"
+    },
+    {
+      "path": "src/game/mission-workbench.css",
+      "bytes": 23970,
+      "sha256": "58b3b3803766d3fd720022189902b3cbe827ee9e314db3a1be8e2a54ddfbadb7"
+    },
+    {
+      "path": "src/game/new-york-academy.css",
+      "bytes": 36965,
+      "sha256": "c3c58fd51457bf1a9946d78a8c8f8b908866c3d0a4b0c5f2dc0b879310875a53"
+    },
+    {
+      "path": "src/game/new-york-landing.css",
+      "bytes": 11066,
+      "sha256": "6cbd2689ba0e6164fc493118caafb28a1353c72a48d6ae1c929b822e4568f7ae"
+    },
+    {
+      "path": "src/game/trainingPreview.ts",
+      "bytes": 21298,
+      "sha256": "b55629a5e2a41fdf5c07e63e57d37937626ca819e4a3504981de58577010c22f"
+    },
+    {
+      "path": "src/game/web-lab-intro.css",
+      "bytes": 3373,
+      "sha256": "e70aee8601f62102f582ef92b475b56aaed1d4c3487386ebb7d4ca2296becc50"
+    },
+    {
+      "path": "src/main.tsx",
+      "bytes": 395,
+      "sha256": "ee4bd289f8097bcf6569b2217fac8f7f69da76e0d97bb92d1ac8fdae29865daa"
+    },
+    {
+      "path": "src/references.ts",
+      "bytes": 2323,
+      "sha256": "6cc0fe6d06b7b9fd17fdaecab2cabd50efda15c4a6521d4c785b7c0eeaacd3cd"
+    },
+    {
+      "path": "src/site.css",
+      "bytes": 534,
+      "sha256": "520ecd1b689864a39cab845ba82ebc71f011f9c01d6db928a4ca8c7a21710e28"
+    },
+    {
+      "path": "tests/city-entry.test.ts",
+      "bytes": 10510,
+      "sha256": "00eaf16cef389467a16e34bdd9cafa8e696297fc4c70a33737607e5ea32d482d"
+    },
+    {
+      "path": "tests/city-flight-readiness.test.ts",
+      "bytes": 3940,
+      "sha256": "a32dcbd447ad8200b54e59294f7bc786b8a9675397d1c469d160cae36c6c82f1"
+    },
+    {
+      "path": "tests/game-curriculum.test.ts",
+      "bytes": 5297,
+      "sha256": "6c9e61f34c9c3746d085b052b17b79acfd7e5340efd80ca3eb62ca6dac5cac46"
+    },
+    {
+      "path": "tests/game-trainingPreview.test.ts",
+      "bytes": 7543,
+      "sha256": "e4ff90a99720168b4be8c77652a68ed78753f74ed1c43255c00aeda333be01f7"
+    },
+    {
+      "path": "tests/site-boundary.test.ts",
+      "bytes": 1666,
+      "sha256": "1ff78200c9eea01b10199e73d011c86cdd665d0b1fe4cdfe4e31d721006f9960"
+    },
+    {
+      "path": "tsconfig.json",
+      "bytes": 473,
+      "sha256": "94f07a4e694a6bc6e628b954d7f84fb5008bebffedeea1102f8fc4376cadd25b"
+    },
+    {
+      "path": "vite.config.ts",
+      "bytes": 158,
+      "sha256": "a1578c9b5046470065f99ce04b3c11b65ec45e29975ae0b1cdb2bd22bc4f5df8"
+    }
+  ],
+  "handoff_changes": [
+    "README.md",
+    ".gitignore",
+    "HANDOFF.md",
+    ".nvmrc",
+    "SOURCE_MANIFEST.json"
+  ],
+  "excluded": [
+    "Git metadata",
+    "node_modules",
+    "dist",
+    "work",
+    "environment files",
+    "tokens and signing keys",
+    "private ledger state",
+    "the separate original authenticated ledger app"
+  ]
+}
