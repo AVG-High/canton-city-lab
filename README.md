@@ -1,5 +1,12 @@
 # Canton City Lab — New York online learning edition
 
+## 공유 링크
+
+- [웹사이트 체험하기](https://canton-city-lab.hojag57.chatgpt.site/)
+- [공개 GitHub 소스](https://github.com/AVG-High/canton-city-lab)
+
+GitHub는 Public으로 전환되어 로그인 없이 코드 열람과 복제가 가능합니다. 현재 사이트는 실제 Canton 원장에 연결하지 않은 교육용 프런트엔드입니다.
+
 For Korean setup and cross-machine development, see [HANDOFF.md](HANDOFF.md). This repository preserves the published v14 frontend and the v13 source rollback tag.
 
 A full-screen Manhattan entrance leads into a menu-driven learning workspace. Hold and drag the scene to the right to approach the skyline, continue onto the waterfront street, pass through the building threshold and arrive inside a quiet office. Drag left to retrace the route. Mouse wheel and two-finger trackpad scrolling work on either axis; browser pinch/modified-wheel zoom remains available. A phone supports single-finger right/left dragging and up/down swiping. Nearby river and façade planes sweep outward during the approach, and a glass-door overlay opens into the office. This is a layered 2.5D design journey, not a reconstructed 3D city or a verified real institutional office. Every scene is derived from the same camera position, so reverse input returns through the route before workspace entry.
